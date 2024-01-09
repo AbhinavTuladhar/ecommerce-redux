@@ -5,6 +5,10 @@ export default {
     extend: {
       width: {
         container: "95%",
+        inherit: "inherit",
+      },
+      height: {
+        inherit: "inherit",
       },
       colors: {
         "main-green": "#0B6434",

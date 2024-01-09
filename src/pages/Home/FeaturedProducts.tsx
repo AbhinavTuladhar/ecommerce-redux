@@ -1,22 +1,7 @@
-import { FC } from "react"
 import Clothes from '@/assets/clothes.jpg'
 import Electronics from '@/assets/electronics.jpg'
-
-interface CardProps {
-  children: React.ReactNode,
-  backgroundColour: string,
-  flexDirection: 'row' | 'col'
-}
-
-const FeatureCard: FC<CardProps> = ({ children, backgroundColour, flexDirection }) => {
-  const flexClassName = flexDirection === 'col' ? 'flex-col' : 'flex-row'
-
-  return (
-    <div className={`${flexClassName} ${backgroundColour} justify-center items-center h-full text-black flex gap-7 rounded-xl`}>
-      {children}
-    </div>
-  )
-}
+import Furniture from '@/assets/furniture-2.jpg'
+import React from 'react'
 
 const FeatureCardFirst = () => (
   <article className='flex flex-col justify-center items-center h-full px-4 py-12 text-black gap-y-7 bg-[#c8a938] rounded-xl'>
@@ -29,7 +14,7 @@ const FeatureCardFirst = () => (
 )
 
 const FeatureCardSecond = () => (
-  <article className='flex flex-row justify-between items-center h-full p-4 text-white bg-[#fb8787] rounded-xl'>
+  <article className='flex flex-row justify-between items-center h-full px-4 text-white bg-[#fb8787] rounded-xl'>
     <img src={Electronics} className='max-h-80' alt='some electronics' />
     <div className='flex flex-col justify-center gap-y-7'>
       <div className='flex flex-col gap-y-2'>
@@ -41,7 +26,27 @@ const FeatureCardSecond = () => (
   </article>
 )
 
-const FeaturedProducts = () => {
+const FeatureCardThird = () => (
+  <article className='flex flex-row justify-between items-center h-full px-4 bg-[#ff9564] rounded-xl'>
+    <div className='flex flex-col items-center gap-1'>
+      <div className='grid w-48 h-24 font-semibold text-black'>
+        <span className='flex items-center justify-center h-full col-start-1 row-start-1 text-4xl font-bold'> 20% </span>
+
+        <fieldset role='presentation' className='col-start-1 row-start-1 -rotate-180 border border-transparent border-t-black w-inherit h-inherit'>
+          <legend className='ml-2 font-semibold uppercase rotate-180'> Discount </legend>
+        </fieldset>
+
+        <fieldset role='presentation' className='col-start-1 row-start-1 border border-transparent w-inherit h-inherit border-t-black '>
+          <legend className='ml-2 font-semibold uppercase'> Upto </legend>
+        </fieldset>
+      </div>
+      <h3 className='text-sm uppercase'> Enjoy your new sofa </h3>
+    </div>
+    <img src={Furniture} className='max-h-60' alt='a bunch of furniture' />
+  </article>
+)
+
+const FeaturedProducts: React.FC = () => {
   return (
     <div className='flex flex-col gap-8 py-8 mx-auto w-container'>
       <h2 className='text-3xl font-semibold uppercase'> Featured products </h2>
@@ -49,8 +54,12 @@ const FeaturedProducts = () => {
         <div className='row-span-2'>
           <FeatureCardFirst />
         </div>
-        <div className='row-span-1'> <FeatureCardSecond /> </div>
-        <div className='row-span-1'> <FeatureCardSecond /> </div>
+        <div className='row-span-1'>
+          <FeatureCardSecond />
+        </div>
+        <div className='row-span-1'>
+          <FeatureCardThird />
+        </div>
       </div>
     </div>
   )
