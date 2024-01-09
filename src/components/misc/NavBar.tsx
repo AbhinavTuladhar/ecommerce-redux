@@ -4,7 +4,7 @@ const NavBar = () => {
   ]
 
   return (
-    <nav className='px-6 py-4 flex justify-between items-center border-b border-slate-950 shadow-lg'>
+    <nav className='flex items-center justify-between py-4 mx-auto border-b shadow-2xl w-container border-slate-950'>
       <h1 className='text-4xl font-bold'> LOGO </h1>
       <ul className='flex gap-x-6'>
         {navItems.map((nav, index) => (
