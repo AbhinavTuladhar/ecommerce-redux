@@ -11,7 +11,7 @@ export const ProductsAPI = {
         throw new Error(`Error: ${response.status} - ${response.statusText}`)
       }
 
-      const data: ProductsType = await response.json()
+      const data: Array<ProductsType> = await response.json()
       return data
     } catch (error) {
       console.error('Error when getting product information', error)

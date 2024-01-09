@@ -1,5 +1,6 @@
 import { RootState } from "@/store";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { ProductsAPI } from "@/services/productsAPI";
 
 interface CategoryType {
   id: string,
@@ -21,11 +22,43 @@ export interface ProductsType {
   category: CategoryType
 }
 
-const initialState: ProductsType[] = []
+export interface ProductsState {
+  loading: boolean,
+  products: Array<ProductsType>,
+  error: string | undefined
+}
+
+export const fetchProducts = createAsyncThunk(
+  "products/fetchProducts",
+  async () => {
+    const response = await ProductsAPI.get()
+    return response
+  }
+)
+
+const initialState: ProductsState = {
+  loading: false,
+  products: [],
+  error: undefined
+}
 
 const productsSlice = createSlice({
   name: 'products',
   initialState,
+  extraReducers: (builder) => {
+    builder.addCase(fetchProducts.pending, (state) => {
+      state.loading = true
+    })
+    builder.addCase(fetchProducts.rejected, (state, action) => {
+      state.loading = false
+      state.products = []
+      state.error = action.error.message
+    })
+    builder.addCase(fetchProducts.fulfilled, (state, action: PayloadAction<Array<ProductsType>>) => {
+      state.loading = false
+      state.products = action.payload
+    })
+  },
   reducers: {}
 })
 
