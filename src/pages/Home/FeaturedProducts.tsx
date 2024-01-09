@@ -1,6 +1,6 @@
 import Clothes from '@/assets/clothes.jpg'
 import Electronics from '@/assets/electronics.jpg'
-import Furniture from '@/assets/furniture-2.jpg'
+import Furniture from '@/assets/furniture-cropped.jpg'
 import React from 'react'
 
 const FeatureCardFirst = () => (
@@ -21,7 +21,9 @@ const FeatureCardSecond = () => (
         <h2 className='text-2xl uppercase'> Latest tech </h2>
         <h2 className='text-3xl uppercase'> Super sale </h2>
       </div>
-      <button className='self-center p-3 text-xl font-semibold uppercase bg-black rounded-md'> Shop now </button>
+      <button className='self-center p-3 text-xl font-semibold uppercase duration-500 bg-black rounded-md hover:bg-gray-800 hover:cursor-pointer active:scale-95'>
+        Shop now
+      </button>
     </div>
   </article>
 )
@@ -42,7 +44,7 @@ const FeatureCardThird = () => (
       </div>
       <h3 className='text-sm uppercase'> Enjoy your new sofa </h3>
     </div>
-    <img src={Furniture} className='max-h-60' alt='a bunch of furniture' />
+    <img src={Furniture} className='max-h-60 max-w-96' alt='a bunch of furniture' />
   </article>
 )
 
