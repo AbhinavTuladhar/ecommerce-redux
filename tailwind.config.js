@@ -15,6 +15,7 @@ export default {
       },
       gridTemplateColumns: {
         hero: "2fr 3fr",
+        "products-grid": "repeat(auto-fill, minmax(min(256px, 100%), 1fr))",
       },
     },
   },
