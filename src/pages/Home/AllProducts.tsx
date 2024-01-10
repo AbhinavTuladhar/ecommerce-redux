@@ -1,21 +1,8 @@
-import { useEffect, useState } from 'react'
-import { useAppSelector } from '@/hooks/reduxHooks'
-import { ProductsSelector } from '@/features/products/productsSlice'
-import type { ProductsType } from '@/features/products/productsSlice'
 import ProductCard from '@/components/misc/ProductCard'
+import useProducts from '@/hooks/useProducts'
 
 const AllProducts = () => {
-  const fetchedProducts = useAppSelector(ProductsSelector)
-
-  const [products, setProducts] = useState<Array<ProductsType>>([])
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | undefined>(undefined)
-
-  useEffect(() => {
-    setLoading(fetchedProducts.loading)
-    setProducts(fetchedProducts.products)
-    setError(fetchedProducts.error)
-  }, [fetchedProducts])
+  const { products, error, loading } = useProducts()
 
   return (
     <div className='flex flex-col pb-8 mx-auto gap-y-8 w-container'>
