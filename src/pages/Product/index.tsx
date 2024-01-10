@@ -1,6 +1,8 @@
+import ProductDetail from "./ProductDetail"
+
 const index = () => {
   return (
-    <div>index</div>
+    <ProductDetail />
   )
 }
 
