@@ -5,15 +5,18 @@ import { NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { DarkSelector, toggleDarkMode } from '@/features/dark/darkSlice'
 import { CartSelector } from "@/features/cart/cartSlice";
+import findTotalItems from "@/helpers/findTotalItems";
 
 const NavBar: FC = () => {
   const darkModeEnabled = useAppSelector(DarkSelector)
-  const cartItemCount = useAppSelector(CartSelector).length
+  const cart = useAppSelector(CartSelector)
   const dispatch = useAppDispatch()
 
   const navItems = [
     'Home', 'About', 'Service', 'Product', 'Contact'
   ]
+
+  const totalCartItems = findTotalItems(cart)
 
   const handleThemeChange = () => {
     dispatch(toggleDarkMode())
@@ -37,7 +40,7 @@ const NavBar: FC = () => {
             <FaSun className={`${darkModeEnabled ? 'block' : 'hidden'} w-6 h-6`} />
             <FaMoon className={`${darkModeEnabled ? 'hidden' : 'block'} w-6 h-6`} />
           </button>
-          <span> Cart ({cartItemCount})</span>
+          <span> Cart ({totalCartItems})</span>
         </div>
       </div>
     </nav>
