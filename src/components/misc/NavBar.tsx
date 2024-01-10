@@ -4,9 +4,11 @@ import { FaMoon } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { DarkSelector, toggleDarkMode } from '@/features/dark/darkSlice'
+import { CartSelector } from "@/features/cart/cartSlice";
 
 const NavBar: FC = () => {
   const darkModeEnabled = useAppSelector(DarkSelector)
+  const cartItemCount = useAppSelector(CartSelector).length
   const dispatch = useAppDispatch()
 
   const navItems = [
@@ -30,10 +32,13 @@ const NavBar: FC = () => {
             </li>
           ))}
         </ul>
-        <button onClick={handleThemeChange}>
-          <FaSun className={`${darkModeEnabled ? 'block' : 'hidden'} w-6 h-6`} />
-          <FaMoon className={`${darkModeEnabled ? 'hidden' : 'block'} w-6 h-6`} />
-        </button>
+        <div className='flex flex-row gap-x-2'>
+          <button onClick={handleThemeChange}>
+            <FaSun className={`${darkModeEnabled ? 'block' : 'hidden'} w-6 h-6`} />
+            <FaMoon className={`${darkModeEnabled ? 'hidden' : 'block'} w-6 h-6`} />
+          </button>
+          <span> Cart ({cartItemCount})</span>
+        </div>
       </div>
     </nav>
   )
