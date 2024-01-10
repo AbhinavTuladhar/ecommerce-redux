@@ -18,13 +18,13 @@ const ProductDetail = () => {
   } = foundProduct || {}
 
   const toRender = (
-    <div className='grid items-center grid-cols-2 gap-x-4'>
-      <img src={image} alt={title} className='w-full max-w-80' />
+    <div className='flex flex-col items-center md:grid gap-y-10 md:grid-cols-2 gap-x-10'>
+      <img src={image} alt={title} className='w-full justify-self-center max-w-80' />
       <div className='flex flex-col gap-y-4'>
         <h4 className='text-lg uppercase'>
           {category}
         </h4>
-        <h1 className='text-6xl'>
+        <h1 className='text-4xl md:text-5xl lg:text-6xl'>
           {title}
         </h1>
         <div className='flex items-center gap-x-1'>
