@@ -11,7 +11,7 @@ const ProductCard: FC<CardProps> = ({ product }) => {
   const { id, title, price, image } = product
 
   return (
-    <div className='flex flex-col items-center justify-between p-8 border border-green-300 rounded-lg shadow-lg dark:shadow-none gap-y-2'>
+    <div className='flex flex-col items-center justify-between p-8 border border-transparent rounded-lg shadow-lg dark:shadow-slate-900 gap-y-2'>
       <img src={image} alt={title} className='max-w-52 max-h-40' />
       <h2 className='text-2xl font-bold text-center line-clamp-2'>
         {title}
