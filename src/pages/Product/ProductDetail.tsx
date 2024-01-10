@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { FaStar } from "react-icons/fa";
+import StarRating from "@/components/misc/StarRating";
 import useProducts from "@/hooks/useProducts"
 
 const ProductDetail = () => {
@@ -29,7 +29,7 @@ const ProductDetail = () => {
         </h1>
         <div className='flex items-center gap-x-1'>
           <span> {rate} </span>
-          <FaStar />
+          <StarRating rating={rate} />
           <span> ({count})</span>
         </div>
         <span className='my-2 text-4xl'> ${price} </span>
