@@ -13,7 +13,7 @@ const NavBar: FC<NavbarProps> = ({ dark, toggleDarkMode }) => {
   ]
 
   return (
-    <nav className='relative border-b border-transparent shadow-2xl dark:border-slate-950 dark:shadow-none'>
+    <nav className='relative border-b border-transparent shadow-lg dark:border-slate-950 dark:shadow-none'>
       <div className='flex items-center justify-between py-4 mx-auto w-container'>
         <h1 className='text-4xl font-bold'> LOGO </h1>
         <ul className='flex gap-x-6'>

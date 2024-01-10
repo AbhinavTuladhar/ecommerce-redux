@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div className={`min-h-[100dvh]  ${dark ? 'dark' : ''}`}>
-      <div className='duration-500 bg-slate-100 text-slate-800 dark:bg-gray-800 dark:text-white'>
+      <div className='duration-500 bg-white text-slate-800 dark:bg-gray-800 dark:text-white'>
         <NavBar dark={dark} toggleDarkMode={toggleDarkMode} />
         <Router />
         <Footer />
