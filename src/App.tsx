@@ -1,10 +1,11 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { fetchProducts, ProductsSelector } from '@/features/products/productsSlice'
 import NavBar from "@/components/misc/NavBar"
 import Home from "@/pages/Home"
 
 const App = () => {
+  const [dark, setDark] = useState(true)
   const products = useAppSelector(ProductsSelector)
   const dispatch = useAppDispatch()
 
@@ -14,14 +15,20 @@ const App = () => {
     }
   }, [dispatch, products.products.length])
 
+  const toggleDarkMode = () => {
+    setDark(prevState => !prevState)
+  }
+
   // useEffect(() => {
   //   console.log(products)
   // }, [products])
 
   return (
-    <div className='min-h-[100dvh] bg-gray-800 text-white'>
-      <NavBar />
-      <Home />
+    <div className={`min-h-[100dvh]  ${dark ? 'dark' : ''}`}>
+      <div className='bg-slate-100 text-slate-800 dark:bg-gray-800 dark:text-white duration-500'>
+        <NavBar toggleDarkMode={toggleDarkMode} />
+        <Home />
+      </div>
     </div>
   )
 }

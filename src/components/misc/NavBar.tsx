@@ -1,4 +1,10 @@
-const NavBar = () => {
+import { FC } from "react"
+
+interface NavbarProps {
+  toggleDarkMode: () => void
+}
+
+const NavBar: FC<NavbarProps> = ({ toggleDarkMode }) => {
   const navItems = [
     'Home', 'About', 'Service', 'Product', 'Contact'
   ]
@@ -13,9 +19,12 @@ const NavBar = () => {
           </li>
         ))}
       </ul>
-      <span>
+      <button onClick={toggleDarkMode}>
+        dark
+      </button>
+      {/* <span>
         Cart (0)
-      </span>
+      </span> */}
     </nav>
   )
 }
