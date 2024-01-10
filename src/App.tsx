@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { fetchProducts, ProductsSelector } from '@/features/products/productsSlice'
 import NavBar from "@/components/misc/NavBar"
-import Home from "@/pages/Home"
 import Footer from './components/misc/Footer'
+import Router from './Router'
 
 const App = () => {
   const [dark, setDark] = useState(true)
@@ -28,7 +28,7 @@ const App = () => {
     <div className={`min-h-[100dvh]  ${dark ? 'dark' : ''}`}>
       <div className='duration-500 bg-slate-100 text-slate-800 dark:bg-gray-800 dark:text-white'>
         <NavBar dark={dark} toggleDarkMode={toggleDarkMode} />
-        <Home />
+        <Router />
         <Footer />
       </div>
     </div>
