@@ -1,8 +1,7 @@
 import { FC } from 'react'
 import { NavLink } from 'react-router-dom';
 import type { ProductsType } from '@/features/products/productsSlice'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import AddToCartButton from './AddToCartButton';
 
 interface CardProps {
   product: ProductsType
@@ -10,8 +9,6 @@ interface CardProps {
 
 const ProductCard: FC<CardProps> = ({ product }) => {
   const { id, title, price, image } = product
-
-  const notify = () => toast.success('Added item to the cart!')
 
   return (
     <div className='flex flex-col items-center justify-between p-8 border border-green-300 rounded-lg shadow-lg dark:shadow-none gap-y-2'>
@@ -24,10 +21,7 @@ const ProductCard: FC<CardProps> = ({ product }) => {
       </p>
       <div className='flex items-center gap-x-2'>
         <NavLink to={`/product/${id}`} className='text-blue-500 duration-300 hover:underline hover:text-red-500 hover:cursor-pointer'> View details </NavLink>
-        <button className='p-3 text-white duration-300 ease-out rounded-md bg-main-green hover:cursor-pointer hover:bg-green-600' onClick={notify}>
-          Add to cart
-          <ToastContainer theme='dark' autoClose={1250} />
-        </button>
+        <AddToCartButton id={id} />
       </div>
     </div>
   )
