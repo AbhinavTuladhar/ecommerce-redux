@@ -18,7 +18,7 @@ const AllProducts = () => {
   }, [fetchedProducts])
 
   return (
-    <div className='flex flex-col mx-auto gap-y-8 w-container'>
+    <div className='flex flex-col pb-8 mx-auto gap-y-8 w-container'>
       <h2 className='text-3xl font-semibold uppercase'> All Products </h2>
       {loading && <div> Loading... </div>}
       {error && <div> Found an error </div>}
