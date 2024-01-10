@@ -3,9 +3,9 @@ import HeroImage from '@/assets/ecommerce marketing.jpg'
 const Hero = () => {
   return (
     <div className='flex items-center bg-main-green min-h-96'>
-      <div className='grid content-center min-h-full py-4 mx-auto place-content-center place-items-center grid-cols-hero gap-x-40 w-container'>
+      <div className='grid content-center min-h-full py-4 mx-auto place-content-center place-items-center grid-cols-hero gap-x-32 w-container'>
         <div className='flex flex-col justify-center h-full gap-y-8'>
-          <h1 className='text-4xl font-bold tracking-wider uppercase'>
+          <h1 className='text-6xl font-bold tracking-wider uppercase'>
             Elevate Your Lifestyle
           </h1>
           <p>

@@ -26,7 +26,7 @@ const ProductCard: FC<CardProps> = ({ product }) => {
       <p className='text-xl'>
         ${price}
       </p>
-      <div className='flex items-center gap-x-4'>
+      <div className='flex items-center gap-x-2'>
         <p className='text-blue-500 duration-300 hover:underline hover:text-red-500 hover:cursor-pointer'> View details </p>
         <button className='p-3 text-white duration-300 ease-out rounded-md bg-main-green hover:cursor-pointer hover:bg-green-600' onClick={notify}>
           Add to cart

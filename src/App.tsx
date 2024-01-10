@@ -14,9 +14,9 @@ const App = () => {
     }
   }, [dispatch, products.products.length])
 
-  useEffect(() => {
-    console.log(products)
-  }, [products])
+  // useEffect(() => {
+  //   console.log(products)
+  // }, [products])
 
   return (
     <div className='min-h-[100dvh] bg-gray-800 text-white'>
