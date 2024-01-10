@@ -5,8 +5,6 @@ import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { DarkSelector } from '@/features/dark/darkSlice';
 import { addToCart } from '@/features/cart/cartSlice';
 import useProducts from '@/hooks/useProducts';
-import { CartItem } from '@/features/cart/cartSlice';
-import type { ProductsType } from '@/features/products/productsSlice';
 
 interface Props {
   id: number
@@ -20,16 +18,7 @@ const AddToCartButton: FC<Props> = ({ id }) => {
   const { products } = useProducts()
 
   const handleCartAddition = () => {
-    // Find the corresponding item in the inventory
-    const foundProduct = products.find(product => product.id === id) as ProductsType
-    const cartItem: CartItem = {
-      id: id,
-      name: foundProduct.title,
-      image: foundProduct.image,
-      price: foundProduct.price,
-      quantity: 1
-    }
-    dispatch(addToCart(cartItem))
+    dispatch(addToCart({ productId: id, products }))
     notify()
   }
 
