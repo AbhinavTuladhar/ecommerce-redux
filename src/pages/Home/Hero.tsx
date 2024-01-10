@@ -9,7 +9,7 @@ const Hero = () => {
             Elevate Your Lifestyle
           </h1>
           <p>
-            Discover fashion trends, unleash tech marvels, step into comfort with footwear, and elevate your space with chic furniture.
+            Discover elegance, innovation, and style: unveiling exquisite jewelry, cutting-edge electronics, and fashion forward clothing for your unique lifestyle.
           </p>
           <button className='self-center px-4 py-3 text-2xl font-semibold uppercase bg-white rounded-md md:self-start text-main-green'>
             Learn more
