@@ -2,16 +2,20 @@ import { FC } from "react"
 import { FaSun } from "react-icons/fa";
 import { FaMoon } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
+import { DarkSelector, toggleDarkMode } from '@/features/dark/darkSlice'
 
-interface NavbarProps {
-  dark: boolean,
-  toggleDarkMode: () => void
-}
+const NavBar: FC = () => {
+  const darkModeEnabled = useAppSelector(DarkSelector)
+  const dispatch = useAppDispatch()
 
-const NavBar: FC<NavbarProps> = ({ dark, toggleDarkMode }) => {
   const navItems = [
     'Home', 'About', 'Service', 'Product', 'Contact'
   ]
+
+  const handleThemeChange = () => {
+    dispatch(toggleDarkMode())
+  }
 
   return (
     <nav className='relative border-b border-transparent shadow-lg dark:border-slate-950 dark:shadow-none'>
@@ -26,9 +30,9 @@ const NavBar: FC<NavbarProps> = ({ dark, toggleDarkMode }) => {
             </li>
           ))}
         </ul>
-        <button onClick={toggleDarkMode}>
-          <FaSun className={`${dark ? 'block' : 'hidden'} w-6 h-6`} />
-          <FaMoon className={`${dark ? 'hidden' : 'block'} w-6 h-6`} />
+        <button onClick={handleThemeChange}>
+          <FaSun className={`${darkModeEnabled ? 'block' : 'hidden'} w-6 h-6`} />
+          <FaMoon className={`${darkModeEnabled ? 'hidden' : 'block'} w-6 h-6`} />
         </button>
       </div>
     </nav>
