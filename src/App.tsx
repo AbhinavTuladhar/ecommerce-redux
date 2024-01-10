@@ -4,6 +4,7 @@ import { fetchProducts, ProductsSelector } from '@/features/products/productsSli
 import NavBar from "@/components/misc/NavBar"
 import Footer from './components/misc/Footer'
 import Router from './Router'
+import ScrollToTop from '@/components/misc/ScrollToTop'
 
 const App = () => {
   const [dark, setDark] = useState(true)
@@ -29,6 +30,7 @@ const App = () => {
       <div className='duration-500 bg-white text-slate-800 dark:bg-gray-800 dark:text-white'>
         <NavBar dark={dark} toggleDarkMode={toggleDarkMode} />
         <Router />
+        <ScrollToTop />
         <Footer />
       </div>
     </div>
