@@ -32,10 +32,12 @@ const AddToCartButton: FC<Props> = ({ id }) => {
   }
 
   return (
-    <button className='p-3 text-white duration-300 ease-out rounded-md bg-main-green hover:cursor-pointer hover:bg-green-600' onClick={handleCartAddition}>
-      Add to cart
+    <>
+      <button className='p-3 text-white duration-300 ease-out rounded-md bg-main-green hover:cursor-pointer hover:bg-green-600' onClick={handleCartAddition}>
+        Add to cart
+      </button>
       <ToastContainer theme='dark' autoClose={1250} />
-    </button>
+    </>
   )
 }
 
