@@ -1,3 +1,3 @@
-const BASE_URL = 'https://api.escuelajs.co/api/v1'
+const BASE_URL = 'https://fakestoreapi.com'
 
 export default BASE_URL

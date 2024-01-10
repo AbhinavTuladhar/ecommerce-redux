@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppSelector } from '@/hooks/reduxHooks'
 import { ProductsSelector } from '@/features/products/productsSlice'
 import type { ProductsType } from '@/features/products/productsSlice'

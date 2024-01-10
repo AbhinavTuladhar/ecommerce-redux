@@ -8,21 +8,16 @@ interface CardProps {
 }
 
 const ProductCard: FC<CardProps> = ({ product }) => {
-  const { title, price, image = '', images = [], category: { name: categoryName } } = product
-
-  const imageSource = image ? image : images[0]
+  const { id, title, category, price, image, rating: { rate, count } } = product
 
   const notify = () => toast.success('Added item to the cart!')
 
   return (
     <div className='flex flex-col items-center justify-between p-8 border border-green-300 rounded-lg shadow-md gap-y-2'>
-      <img src={imageSource} alt={title} className='max-w-52 max-h-40' />
-      <h2 className='text-2xl font-bold text-center'>
+      <img src={image} alt={title} className='max-w-52 max-h-40' />
+      <h2 className='text-2xl font-bold text-center line-clamp-2'>
         {title}
       </h2>
-      <h3 className='text-lg font-bold text-center'>
-        {categoryName}
-      </h3>
       <p className='text-xl'>
         ${price}
       </p>

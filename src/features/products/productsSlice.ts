@@ -2,24 +2,17 @@ import { RootState } from "@/store";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { ProductsAPI } from "@/services/productsAPI";
 
-interface CategoryType {
-  id: string,
-  name: string,
-  image: string,
-  creationAt: string,
-  updatedAt: string
-}
-
 export interface ProductsType {
-  id: string,
+  id: number,
   title: string,
   price: number,
   description: string,
-  image?: string,
-  images?: string[],
-  creationAt: string,
-  updatedAt: string,
-  category: CategoryType
+  category: string,
+  image: string,
+  rating: {
+    rate: number,
+    count: number
+  }
 }
 
 export interface ProductsState {
@@ -31,7 +24,7 @@ export interface ProductsState {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    const response = await ProductsAPI.get()
+    const response = await ProductsAPI.getProducts()
     return response
   }
 )
