@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import StarRating from "@/components/misc/StarRating";
 import useProducts from "@/hooks/useProducts"
+import AddToCartButton from "@/components/misc/AddToCartButton";
 
 const ProductDetail = () => {
   const { id } = useParams()
@@ -24,16 +25,25 @@ const ProductDetail = () => {
         <h4 className='text-lg uppercase'>
           {category}
         </h4>
+
         <h1 className='text-4xl md:text-5xl lg:text-6xl'>
           {title}
         </h1>
+
         <div className='flex items-center gap-x-1'>
           <span> {rate} </span>
           <StarRating rating={rate} />
           <span> ({count})</span>
         </div>
+
         <span className='my-2 text-4xl'> ${price} </span>
+
         <p> {description} </p>
+
+        {/* For some buttons */}
+        <div>
+          <AddToCartButton id={Number(id)} />
+        </div>
       </div>
     </div>
   )
