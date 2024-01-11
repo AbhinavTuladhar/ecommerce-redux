@@ -13,6 +13,7 @@ export default {
       colors: {
         "main-green": "#0B6434",
         complementary: "#372D1F",
+        "complementary-light": "#f8f9fa",
       },
       gridTemplateColumns: {
         hero: "2fr 3fr",
