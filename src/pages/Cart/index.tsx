@@ -10,7 +10,7 @@ const Index = () => {
   const isCartEmpty = findTotalItems(cart) === 0;
 
   return (
-    <main className="mx-auto w-5/6 py-4">
+    <main className="mx-auto flex w-5/6 flex-col py-4">
       <h1 className="border-b border-slate-500 pb-4 text-center text-4xl font-bold">Cart</h1>
       {isCartEmpty ? (
         <NoItemInfo />
