@@ -12,11 +12,13 @@ export default {
       },
       colors: {
         "main-green": "#0B6434",
+        complementary: "#372D1F",
       },
       gridTemplateColumns: {
         hero: "2fr 3fr",
         "products-grid": "repeat(auto-fit, minmax(min(256px, 100%), 1fr))",
         "footer-grid": "repeat(auto-fit, minmax(min(200px, 100%), 1fr))",
+        "cart-grid": "1.95fr 1fr",
       },
       gridTemplateRows: {
         "page-layout": "auto 1fr auto",

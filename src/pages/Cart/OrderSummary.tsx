@@ -1,6 +1,8 @@
 const OrderSummary = () => {
   return (
-    <div>OrderSummary</div>
+    <div className='border border-white'>
+      ORder summary
+    </div>
   )
 }
 

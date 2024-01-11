@@ -19,13 +19,13 @@ const App = () => {
   }, [dispatch, products.products.length])
 
   // Set dark mode according to user preference
-  useEffect(() => {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+  // useEffect(() => {
+  //   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
 
-    if (prefersDark) {
-      dispatch(setDarkMode())
-    }
-  }, [dispatch])
+  //   if (prefersDark) {
+  //     dispatch(setDarkMode())
+  //   }
+  // }, [dispatch])
 
 
   // useEffect(() => {

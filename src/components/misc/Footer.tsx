@@ -27,7 +27,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className='py-8 text-black bg-[#c6ead7] dark:bg-[#372D1F] dark:text-white'>
+    <footer className='py-8 text-black bg-[#c6ead7] dark:bg-complementary dark:text-white'>
       <div className='grid mx-auto grid-cols-footer-grid w-container gap-x-2 gap-y-6'>
         {footerLinks.map((column, index) => {
           const { title, links } = column

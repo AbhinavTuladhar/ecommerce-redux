@@ -1,7 +1,7 @@
 import { RootState } from "@/store";
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: boolean = false
+const initialState: boolean = true
 
 const darkSlice = createSlice({
   name: 'dark',
