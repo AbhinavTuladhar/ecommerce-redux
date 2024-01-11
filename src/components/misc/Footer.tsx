@@ -7,7 +7,7 @@ interface ColumnProps {
 
 const FooterColumn: FC<ColumnProps> = ({ title, links }) => (
   <div className="flex flex-col gap-y-3">
-    <h2 className="text-2xl font-medium uppercase"> {title}</h2>
+    <h2 className="fluid-text-2xl font-medium uppercase"> {title}</h2>
     <ul className="flex flex-col gap-y-1">
       {links.map((link, index) => (
         <li key={index}>{link}</li>

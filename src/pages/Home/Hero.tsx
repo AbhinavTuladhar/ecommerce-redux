@@ -12,7 +12,7 @@ const Hero = () => {
             Discover elegance, innovation, and style: unveiling exquisite jewelry, cutting-edge electronics, and fashion
             forward clothing for your unique lifestyle.
           </p>
-          <button className="text-darkmode-green self-center rounded-md bg-white px-4 py-3 text-2xl font-semibold uppercase md:self-start">
+          <button className="text-darkmode-green fluid-text-2xl self-center rounded-md bg-white px-4 py-3 font-semibold uppercase md:self-start">
             Learn more
           </button>
         </div>
