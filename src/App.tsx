@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { fetchProducts, ProductsSelector } from '@/features/products/productsSlice'
-import { DarkSelector } from '@/features/dark/darkSlice'
+import { DarkSelector, setDarkMode } from '@/features/dark/darkSlice'
 import NavBar from "@/components/misc/NavBar"
 import Footer from './components/misc/Footer'
 import Router from './Router'
@@ -17,6 +17,16 @@ const App = () => {
       dispatch(fetchProducts())
     }
   }, [dispatch, products.products.length])
+
+  // Set dark mode according to user preference
+  useEffect(() => {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+    if (prefersDark) {
+      dispatch(setDarkMode())
+    }
+  }, [dispatch])
+
 
   // useEffect(() => {
   //   console.log(products)
