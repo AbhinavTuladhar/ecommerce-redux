@@ -1,4 +1,5 @@
 import { FC } from "react"
+import SectionCardTitle from "@/components/misc/SectionCardTitle"
 import { useAppSelector } from "@/hooks/reduxHooks"
 import { CartSelector } from "@/features/cart/cartSlice"
 import type { CartItem } from "@/features/cart/cartSlice"
@@ -36,11 +37,9 @@ const ItemList = () => {
 
   return (
     <section className="border border-gray-300 dark:border-white">
-      <div className='py-4 border-b bg-gray-50 dark:bg-complementary border-gray-300 dark:border-slate-700'>
-        <div className='w-11/12 mx-auto font-bold text-2xl '>
-          Items List
-        </div>
-      </div>
+      <SectionCardTitle>
+        Items List
+      </SectionCardTitle>
       {cartItems.map((item, index) => (
         <CartItemRow item={item} key={index} />
       ))}
