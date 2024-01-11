@@ -8,20 +8,19 @@ interface RowProps {
   item: CartItem
 }
 
-
 const CartItemRow: FC<RowProps> = ({ item }) => {
   const { image, name, price, quantity } = item
 
   return (
-    <div className='w-11/12 py-4 border-b border-gray-300 dark:border-slate-600 mx-auto flex flex-row gap-x-10 items-center'>
-      <div className='w-2/12'><img src={image} alt={name} className='h-20 aspect-auto' /></div>
-      <div className='w-6/12'>
-        <h2 className='text-xl font-bold'>
+    <div className='flex flex-col items-center justify-center w-11/12 py-4 mx-auto border-b border-gray-300 dark:border-slate-600 md:flex-row gap-x-10 gap-y-2'>
+      <div className='md:w-2/12'><img src={image} alt={name} className='h-20 aspect-auto' /></div>
+      <div className='md:w-6/12'>
+        <h2 className='text-xl font-bold text-center md:text-left'>
           {name}
         </h2>
       </div>
-      <div className='w-4/12 flex flex-col justify-between items-center gap-y-4'>
-        <div className='w-full flex justify-between items-center text-lg'>
+      <div className='flex flex-col items-center justify-between md:w-4/12 gap-y-4'>
+        <div className='flex items-center justify-between w-full text-lg'>
           <button> - </button>
           <span className='font-bold'> {quantity} </span>
           <button> + </button>
