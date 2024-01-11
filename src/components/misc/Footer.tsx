@@ -25,7 +25,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-[#c6ead7] py-8 text-black dark:bg-complementary dark:text-white">
+    <footer className="dark:bg-darkmode-green bg-lightmode-green py-8 text-white">
       <div className="mx-auto grid w-container grid-cols-footer-grid gap-x-2 gap-y-6">
         {footerLinks.map((column, index) => {
           const { title, links } = column

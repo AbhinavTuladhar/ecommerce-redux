@@ -28,7 +28,7 @@ const AddToCartButton: FC<Props> = ({ id }) => {
   return (
     <>
       <button
-        className="rounded-md bg-main-green p-3 text-white duration-300 ease-out hover:cursor-pointer hover:bg-green-600"
+        className="bg-lightmode-green dark:bg-darkmode-green rounded-md p-3 text-white duration-300 ease-out hover:cursor-pointer hover:bg-green-500 dark:hover:bg-green-600"
         onClick={handleCartAddition}
       >
         Add to cart

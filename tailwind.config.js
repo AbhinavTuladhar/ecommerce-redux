@@ -11,7 +11,8 @@ export default {
         inherit: 'inherit',
       },
       colors: {
-        'main-green': '#0B6434',
+        'lightmode-green': '#49a07f',
+        'darkmode-green': '#0B6434',
         complementary: '#372D1F',
         'complementary-light': '#f8f9fa',
       },
