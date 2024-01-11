@@ -40,7 +40,7 @@ const NavBar: FC = () => {
             <FaSun className={`${darkModeEnabled ? 'hidden' : 'block'} w-6 h-6`} />
             <FaMoon className={`${darkModeEnabled ? 'block' : 'hidden'} w-6 h-6`} />
           </button>
-          <span> Cart ({totalCartItems})</span>
+          <NavLink to='/cart'> Cart ({totalCartItems})</NavLink>
         </div>
       </div>
     </nav>
