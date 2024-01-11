@@ -21,25 +21,30 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state, payload: PayloadAction<CartAddInterface>) => {
-      const { payload: { productId, products } } = payload
-      const foundProduct = products.find(product => product.id === productId) as ProductsType
-
-      // Check if the product is already in the cart. If yes, the increment quantity by 1 else set quantity to 1.
-      const foundCartItem = state.find(item => item.id === productId)
-      if (foundCartItem) {
-        foundCartItem.quantity++
-      } else {
-        const { image, title, price } = foundProduct
-        const newItem: CartItem = {
-          id: productId,
-          image,
-          name: title,
-          price,
-          quantity: 1
+    addToCart: {
+      reducer: (state, payload: PayloadAction<CartItem>) => {
+        const { payload: actualPayload } = payload
+        const foundCartItem = state.find(item => item.id === actualPayload.id)
+        if (foundCartItem) {
+          foundCartItem.quantity++
+        } else {
+          state.push(actualPayload)
         }
-        state.push(newItem)
-      }
+      },
+      prepare: (payload: CartAddInterface) => {
+        const { productId, products } = payload
+        const foundProduct = products.find(product => product.id === productId) as ProductsType
+        const { image, title, price } = foundProduct
+        return {
+          payload: {
+            id: productId,
+            image,
+            name: title,
+            price,
+            quantity: 1
+          }
+        }
+      },
     }
   }
 })
