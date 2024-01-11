@@ -7,7 +7,7 @@ interface ColumnProps {
 
 const FooterColumn: FC<ColumnProps> = ({ title, links }) => (
   <div className="flex flex-col gap-y-3">
-    <h2 className="fluid-text-2xl font-medium uppercase"> {title}</h2>
+    <h2 className="font-medium uppercase fluid-text-2xl"> {title}</h2>
     <ul className="flex flex-col gap-y-1">
       {links.map((link, index) => (
         <li key={index}>{link}</li>
@@ -25,7 +25,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="dark:bg-darkmode-green bg-lightmode-green py-8 text-white">
+    <footer className="bg-lightmode-green py-8 text-white dark:bg-darkmode-green">
       <div className="mx-auto grid w-container grid-cols-footer-grid gap-x-2 gap-y-6">
         {footerLinks.map((column, index) => {
           const { title, links } = column

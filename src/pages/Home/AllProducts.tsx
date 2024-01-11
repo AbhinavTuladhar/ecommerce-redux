@@ -6,7 +6,7 @@ const AllProducts = () => {
 
   return (
     <div className="mx-auto flex w-container flex-col gap-y-8 pb-8">
-      <h2 className="fluid-text-3xl font-semibold uppercase"> All Products </h2>
+      <h2 className="font-semibold uppercase fluid-text-3xl"> All Products </h2>
       {loading && <div> Loading... </div>}
       {error && <div> Found an error </div>}
       <div className="grid grid-cols-products-grid gap-7">

@@ -23,7 +23,7 @@ const NavBar: FC = () => {
   return (
     <nav className="relative flex flex-wrap border-b border-transparent shadow-lg dark:border-slate-950 dark:shadow-none">
       <div className="mx-auto flex w-container flex-wrap items-center justify-between py-4">
-        <h1 className="fluid-text-4xl font-bold">
+        <h1 className="font-bold fluid-text-4xl">
           <NavLink to="/"> LOGO </NavLink>
         </h1>
         <ul className="flex gap-x-6">

@@ -15,7 +15,7 @@ const ProductDetail = () => {
     <div className="flex flex-col items-center gap-x-10 gap-y-10 md:grid md:grid-cols-2">
       <img src={image} alt={title} className="w-full max-w-80 justify-self-center" />
       <div className="flex flex-col gap-y-4">
-        <h4 className="fluid-text-lg uppercase">{category}</h4>
+        <h4 className="uppercase fluid-text-lg">{category}</h4>
 
         <h1 className="fluid-text-6xl">{title}</h1>
 
@@ -25,7 +25,7 @@ const ProductDetail = () => {
           <span> ({count})</span>
         </div>
 
-        <span className="fluid-text-4xl my-2"> ${price} </span>
+        <span className="my-2 fluid-text-4xl"> ${price} </span>
 
         <p> {description} </p>
 

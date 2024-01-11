@@ -13,7 +13,7 @@ const ProductCard: FC<CardProps> = ({ product }) => {
   return (
     <div className="flex flex-col items-center justify-between gap-y-2 rounded-lg border border-transparent p-8 shadow-lg dark:shadow-slate-900">
       <img src={image} alt={title} className="max-h-40 max-w-52" />
-      <h2 className="fluid-text-2xl line-clamp-2 text-center font-bold">{title}</h2>
+      <h2 className="line-clamp-2 text-center font-bold fluid-text-2xl">{title}</h2>
       <p className="fluid-text-xl">${price}</p>
       <div className="flex items-center gap-x-2">
         <NavLink

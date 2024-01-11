@@ -26,10 +26,10 @@ const CartItemRow: FC<RowProps> = ({ item }) => {
         <img src={image} alt={name} className="aspect-auto h-20" />
       </div>
       <div className="md:w-6/12">
-        <h2 className="fluid-text-xl text-center font-bold md:text-left">{name}</h2>
+        <h2 className="text-center font-bold fluid-text-xl md:text-left">{name}</h2>
       </div>
       <div className="flex flex-col items-center justify-between gap-y-4 md:w-4/12">
-        <div className="fluid-text-lg flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between fluid-text-lg">
           <button onClick={handleDecrement}> - </button>
           <span className="font-bold"> {quantity} </span>
           <button onClick={handleIncrement}> + </button>
