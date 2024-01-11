@@ -1,6 +1,6 @@
-import Hero from './Hero'
-import FeaturedProducts from './FeaturedProducts'
-import AllProducts from './AllProducts'
+import Hero from './Hero';
+import FeaturedProducts from './FeaturedProducts';
+import AllProducts from './AllProducts';
 
 const index = () => {
   return (
@@ -9,7 +9,7 @@ const index = () => {
       <FeaturedProducts />
       <AllProducts />
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

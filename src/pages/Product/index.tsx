@@ -1,9 +1,7 @@
-import ProductDetail from "./ProductDetail"
+import ProductDetail from './ProductDetail';
 
 const index = () => {
-  return (
-    <ProductDetail />
-  )
-}
+  return <ProductDetail />;
+};
 
-export default index
+export default index;

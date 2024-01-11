@@ -1,22 +1,22 @@
-import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
-import { fetchProducts, ProductsSelector } from '@/features/products/productsSlice'
-import { DarkSelector, setDarkMode } from '@/features/dark/darkSlice'
-import NavBar from "@/components/misc/NavBar"
-import Footer from './components/misc/Footer'
-import Router from './Router'
-import ScrollToTop from '@/components/misc/ScrollToTop'
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks';
+import { fetchProducts, ProductsSelector } from '@/features/products/productsSlice';
+import { DarkSelector, setDarkMode } from '@/features/dark/darkSlice';
+import NavBar from '@/components/misc/NavBar';
+import Footer from './components/misc/Footer';
+import Router from './Router';
+import ScrollToTop from '@/components/misc/ScrollToTop';
 
 const App = () => {
-  const products = useAppSelector(ProductsSelector)
-  const darkModeEnabled = useAppSelector(DarkSelector)
-  const dispatch = useAppDispatch()
+  const products = useAppSelector(ProductsSelector);
+  const darkModeEnabled = useAppSelector(DarkSelector);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (products.products.length === 0) {
-      dispatch(fetchProducts())
+      dispatch(fetchProducts());
     }
-  }, [dispatch, products.products.length])
+  }, [dispatch, products.products.length]);
 
   // Set dark mode according to user preference
   // useEffect(() => {
@@ -27,21 +27,20 @@ const App = () => {
   //   }
   // }, [dispatch])
 
-
   // useEffect(() => {
   //   console.log(products)
   // }, [products])
 
   return (
     <div className={`${darkModeEnabled ? 'dark' : ''}`}>
-      <div className='min-h-[100dvh] grid grid-rows-page-layout duration-500 bg-white text-slate-800 dark:bg-gray-800 dark:text-white'>
+      <div className="grid min-h-[100dvh] grid-rows-page-layout bg-white text-slate-800 duration-500 dark:bg-gray-800 dark:text-white">
         <NavBar />
         <Router />
         <Footer />
         <ScrollToTop />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

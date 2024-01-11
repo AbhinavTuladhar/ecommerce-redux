@@ -1,19 +1,19 @@
-import { RootState } from "@/store";
-import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from '@/store';
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState: boolean = true
+const initialState: boolean = true;
 
 const darkSlice = createSlice({
   name: 'dark',
   initialState,
   reducers: {
     toggleDarkMode: (state) => !state,
-    setDarkMode: () => true
-  }
-})
+    setDarkMode: () => true,
+  },
+});
 
-export default darkSlice.reducer
+export default darkSlice.reducer;
 
-export const { toggleDarkMode, setDarkMode } = darkSlice.actions
+export const { toggleDarkMode, setDarkMode } = darkSlice.actions;
 
-export const DarkSelector = (state: RootState) => state.dark 
+export const DarkSelector = (state: RootState) => state.dark;
