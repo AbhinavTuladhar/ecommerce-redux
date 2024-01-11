@@ -1,20 +1,20 @@
-import SectionCardTitle from '@/components/misc/SectionCardTitle';
-import findTotalItems from '@/helpers/findTotalItems';
-import findTotalAmount from '@/helpers/findTotalAmount';
-import { useAppSelector } from '@/hooks/reduxHooks';
-import { CartSelector } from '@/features/cart/cartSlice';
+import SectionCardTitle from '@/components/misc/SectionCardTitle'
+import findTotalItems from '@/helpers/findTotalItems'
+import findTotalAmount from '@/helpers/findTotalAmount'
+import { useAppSelector } from '@/hooks/reduxHooks'
+import { CartSelector } from '@/features/cart/cartSlice'
 
 const OrderSummary = () => {
-  const cart = useAppSelector(CartSelector);
+  const cart = useAppSelector(CartSelector)
 
-  const totalItems = findTotalItems(cart);
-  const totalPrice = findTotalAmount(cart);
+  const totalItems = findTotalItems(cart)
+  const totalPrice = findTotalAmount(cart)
 
   const tableData = [
     { label: `Products (${totalItems})`, value: `$${totalPrice.toFixed(2)}` },
     { label: 'Shipping', value: '$30' },
     // { label: 'Total amount', value: `$${(totalPrice + 30).toFixed(2)}` }
-  ];
+  ]
 
   return (
     <section className="border border-gray-300 dark:border-white">
@@ -34,7 +34,7 @@ const OrderSummary = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default OrderSummary;
+export default OrderSummary

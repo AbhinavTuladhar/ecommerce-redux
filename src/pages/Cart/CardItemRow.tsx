@@ -1,24 +1,24 @@
-import { FC } from 'react';
-import { useAppDispatch } from '@/hooks/reduxHooks';
-import { addQuantity, subtractQuantity } from '@/features/cart/cartSlice';
-import type { CartItem } from '@/features/cart/cartSlice';
+import { FC } from 'react'
+import { useAppDispatch } from '@/hooks/reduxHooks'
+import { addQuantity, subtractQuantity } from '@/features/cart/cartSlice'
+import type { CartItem } from '@/features/cart/cartSlice'
 
 interface RowProps {
-  item: CartItem;
+  item: CartItem
 }
 
 const CartItemRow: FC<RowProps> = ({ item }) => {
-  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch()
 
-  const { id, image, name, price, quantity } = item;
+  const { id, image, name, price, quantity } = item
 
   const handleIncrement = () => {
-    dispatch(addQuantity(id));
-  };
+    dispatch(addQuantity(id))
+  }
 
   const handleDecrement = () => {
-    dispatch(subtractQuantity(id));
-  };
+    dispatch(subtractQuantity(id))
+  }
 
   return (
     <div className="mx-auto flex w-11/12 flex-col items-center justify-center gap-x-10 gap-y-2 border-b border-gray-300 py-4 dark:border-slate-600 md:flex-row">
@@ -40,7 +40,7 @@ const CartItemRow: FC<RowProps> = ({ item }) => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CartItemRow;
+export default CartItemRow

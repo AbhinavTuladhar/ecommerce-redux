@@ -1,13 +1,13 @@
-import ItemList from './ItemList';
-import OrderSummary from './OrderSummary';
-import { useAppSelector } from '@/hooks/reduxHooks';
-import { CartSelector } from '@/features/cart/cartSlice';
-import findTotalItems from '@/helpers/findTotalItems';
-import NoItemInfo from './NoItemInfo';
+import ItemList from './ItemList'
+import OrderSummary from './OrderSummary'
+import { useAppSelector } from '@/hooks/reduxHooks'
+import { CartSelector } from '@/features/cart/cartSlice'
+import findTotalItems from '@/helpers/findTotalItems'
+import NoItemInfo from './NoItemInfo'
 
 const Index = () => {
-  const cart = useAppSelector(CartSelector);
-  const isCartEmpty = findTotalItems(cart) === 0;
+  const cart = useAppSelector(CartSelector)
+  const isCartEmpty = findTotalItems(cart) === 0
 
   return (
     <main className="mx-auto flex w-5/6 flex-col py-4">
@@ -21,7 +21,7 @@ const Index = () => {
         </div>
       )}
     </main>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

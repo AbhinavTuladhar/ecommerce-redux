@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
 interface ColumnProps {
-  title: string;
-  links: string[];
+  title: string
+  links: string[]
 }
 
 const FooterColumn: FC<ColumnProps> = ({ title, links }) => (
@@ -14,7 +14,7 @@ const FooterColumn: FC<ColumnProps> = ({ title, links }) => (
       ))}
     </ul>
   </div>
-);
+)
 
 const Footer = () => {
   const footerLinks = [
@@ -22,18 +22,18 @@ const Footer = () => {
     { title: 'Help', links: ['Support', 'Help centre'] },
     { title: 'Contact', links: ['Terms and conditions', 'Return and exchange policy'] },
     { title: 'Follow us', links: ['Facebook', 'Instagram'] },
-  ];
+  ]
 
   return (
     <footer className="bg-[#c6ead7] py-8 text-black dark:bg-complementary dark:text-white">
       <div className="mx-auto grid w-container grid-cols-footer-grid gap-x-2 gap-y-6">
         {footerLinks.map((column, index) => {
-          const { title, links } = column;
-          return <FooterColumn title={title} links={links} key={index} />;
+          const { title, links } = column
+          return <FooterColumn title={title} links={links} key={index} />
         })}
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

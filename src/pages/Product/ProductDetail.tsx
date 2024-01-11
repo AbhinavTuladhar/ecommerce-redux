@@ -1,15 +1,15 @@
-import { useParams } from 'react-router-dom';
-import StarRating from '@/components/misc/StarRating';
-import useProducts from '@/hooks/useProducts';
-import AddToCartButton from '@/components/misc/AddToCartButton';
+import { useParams } from 'react-router-dom'
+import StarRating from '@/components/misc/StarRating'
+import useProducts from '@/hooks/useProducts'
+import AddToCartButton from '@/components/misc/AddToCartButton'
 
 const ProductDetail = () => {
-  const { id } = useParams();
-  const { error, loading, products } = useProducts();
+  const { id } = useParams()
+  const { error, loading, products } = useProducts()
 
-  const foundProduct = products.find((product) => product.id === Number(id));
+  const foundProduct = products.find((product) => product.id === Number(id))
 
-  const { category, description, image, price, title, rating: { rate = 0, count = 0 } = {} } = foundProduct || {};
+  const { category, description, image, price, title, rating: { rate = 0, count = 0 } = {} } = foundProduct || {}
 
   const toRender = (
     <div className="flex flex-col items-center gap-x-10 gap-y-10 md:grid md:grid-cols-2">
@@ -35,7 +35,7 @@ const ProductDetail = () => {
         </div>
       </div>
     </div>
-  );
+  )
 
   return (
     <div className="mx-auto min-h-[80dvh] w-4/5 py-8">
@@ -44,7 +44,7 @@ const ProductDetail = () => {
       {!foundProduct && !loading && <div>Product not found!</div>}
       {foundProduct && !loading && toRender}
     </div>
-  );
-};
+  )
+}
 
-export default ProductDetail;
+export default ProductDetail

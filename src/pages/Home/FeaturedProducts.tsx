@@ -1,7 +1,7 @@
-import Clothes from '@/assets/clothes.jpg';
-import Electronics from '@/assets/electronics.jpg';
-import Furniture from '@/assets/furniture-cropped.jpg';
-import React from 'react';
+import Clothes from '@/assets/clothes.jpg'
+import Electronics from '@/assets/electronics.jpg'
+import Furniture from '@/assets/furniture-cropped.jpg'
+import React from 'react'
 
 const FeatureCardFirst = () => (
   <article className="flex h-full flex-col items-center justify-center gap-y-7 rounded-xl bg-[#c8a938] px-4 py-4 text-black lg:py-12">
@@ -11,7 +11,7 @@ const FeatureCardFirst = () => (
     </div>
     <img src={Clothes} className="max-h-80 w-full max-w-80" alt="some clothes" />
   </article>
-);
+)
 
 const FeatureCardSecond = () => (
   <article className="flex h-full flex-col items-center justify-between rounded-xl bg-[#fb8787] px-4 py-4 text-white lg:flex-row lg:py-0">
@@ -26,7 +26,7 @@ const FeatureCardSecond = () => (
       </button>
     </div>
   </article>
-);
+)
 
 const FeatureCardThird = () => (
   <article className="flex h-full flex-col items-center justify-between rounded-xl bg-[#ff9564] px-4 py-4 lg:flex-row lg:py-0">
@@ -55,7 +55,7 @@ const FeatureCardThird = () => (
     </div>
     <img src={Furniture} className="max-h-60 w-full max-w-96" alt="a bunch of furniture" />
   </article>
-);
+)
 
 const FeaturedProducts: React.FC = () => {
   return (
@@ -73,7 +73,7 @@ const FeaturedProducts: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FeaturedProducts;
+export default FeaturedProducts

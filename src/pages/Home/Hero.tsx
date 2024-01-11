@@ -1,4 +1,4 @@
-import HeroImage from '@/assets/ecommerce marketing.jpg';
+import HeroImage from '@/assets/ecommerce marketing.jpg'
 
 const Hero = () => {
   return (
@@ -19,7 +19,7 @@ const Hero = () => {
         <img src={HeroImage} alt="computers" />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

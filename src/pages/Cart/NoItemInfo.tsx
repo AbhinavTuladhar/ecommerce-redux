@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 const NoItemInfo = () => (
   <section className="my-4 flex flex-1 flex-col items-center justify-center gap-y-4 bg-main-green py-20 text-white">
@@ -8,6 +8,6 @@ const NoItemInfo = () => (
       Shop now!{' '}
     </NavLink>
   </section>
-);
+)
 
-export default NoItemInfo;
+export default NoItemInfo

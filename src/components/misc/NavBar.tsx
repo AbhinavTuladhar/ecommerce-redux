@@ -1,24 +1,24 @@
-import { FC } from 'react';
-import { FaSun } from 'react-icons/fa';
-import { FaMoon } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks';
-import { DarkSelector, toggleDarkMode } from '@/features/dark/darkSlice';
-import { CartSelector } from '@/features/cart/cartSlice';
-import findTotalItems from '@/helpers/findTotalItems';
+import { FC } from 'react'
+import { FaSun } from 'react-icons/fa'
+import { FaMoon } from 'react-icons/fa'
+import { NavLink } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
+import { DarkSelector, toggleDarkMode } from '@/features/dark/darkSlice'
+import { CartSelector } from '@/features/cart/cartSlice'
+import findTotalItems from '@/helpers/findTotalItems'
 
 const NavBar: FC = () => {
-  const darkModeEnabled = useAppSelector(DarkSelector);
-  const cart = useAppSelector(CartSelector);
-  const dispatch = useAppDispatch();
+  const darkModeEnabled = useAppSelector(DarkSelector)
+  const cart = useAppSelector(CartSelector)
+  const dispatch = useAppDispatch()
 
-  const navItems = ['Home', 'About', 'Service', 'Product', 'Contact'];
+  const navItems = ['Home', 'About', 'Service', 'Product', 'Contact']
 
-  const totalCartItems = findTotalItems(cart);
+  const totalCartItems = findTotalItems(cart)
 
   const handleThemeChange = () => {
-    dispatch(toggleDarkMode());
-  };
+    dispatch(toggleDarkMode())
+  }
 
   return (
     <nav className="relative border-b border-transparent shadow-lg dark:border-slate-950 dark:shadow-none">
@@ -42,7 +42,7 @@ const NavBar: FC = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
