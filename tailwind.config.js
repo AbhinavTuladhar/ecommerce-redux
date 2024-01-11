@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+import fluid from 'tailwindcss-fluid-type'
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -27,6 +30,13 @@ export default {
       },
     },
   },
-  plugins: ['prettier-plugin-tailwindcss'],
+  plugins: [
+    'prettier-plugin-tailwindcss',
+    fluid({
+      settings: {
+        prefix: 'fluid-',
+      },
+    }),
+  ],
   darkMode: 'class',
 }
