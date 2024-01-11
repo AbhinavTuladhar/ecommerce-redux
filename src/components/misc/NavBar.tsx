@@ -37,8 +37,8 @@ const NavBar: FC = () => {
         </ul>
         <div className='flex flex-row gap-x-2'>
           <button onClick={handleThemeChange}>
-            <FaSun className={`${darkModeEnabled ? 'block' : 'hidden'} w-6 h-6`} />
-            <FaMoon className={`${darkModeEnabled ? 'hidden' : 'block'} w-6 h-6`} />
+            <FaSun className={`${darkModeEnabled ? 'hidden' : 'block'} w-6 h-6`} />
+            <FaMoon className={`${darkModeEnabled ? 'block' : 'hidden'} w-6 h-6`} />
           </button>
           <span> Cart ({totalCartItems})</span>
         </div>
