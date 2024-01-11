@@ -30,11 +30,12 @@ const cartSlice = createSlice({
       if (foundCartItem) {
         foundCartItem.quantity++
       } else {
+        const { image, title, price } = foundProduct
         const newItem: CartItem = {
           id: productId,
-          image: foundProduct.image,
-          name: foundProduct.title,
-          price: foundProduct.price,
+          image,
+          name: title,
+          price,
           quantity: 1
         }
         state.push(newItem)
