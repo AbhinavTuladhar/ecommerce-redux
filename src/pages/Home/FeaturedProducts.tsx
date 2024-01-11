@@ -28,34 +28,44 @@ const FeatureCardSecond = () => (
   </article>
 )
 
-const FeatureCardThird = () => (
-  <article className="flex h-full flex-col items-center justify-between rounded-xl bg-[#ff9564] px-4 py-4 lg:flex-row lg:py-0">
-    <div className="flex flex-col items-center gap-1">
-      <div className="grid h-24 w-48 font-semibold text-black">
-        <span className="col-start-1 row-start-1 flex h-full items-center justify-center font-bold fluid-text-4xl">
-          {' '}
-          20%{' '}
-        </span>
+const FeatureCardThird = () => {
+  // For distributing the characters evenly in parent container using justify between
+  const customString = 'Enjoy your new sofa'
+  const characterArray = customString.split('').map((letter) => (letter === ' ' ? ' ' : letter))
 
-        <fieldset
-          role="presentation"
-          className="col-start-1 row-start-1 h-inherit w-inherit -rotate-180 border border-transparent border-t-black"
-        >
-          <legend className="ml-2 rotate-180 font-semibold uppercase"> Discount </legend>
-        </fieldset>
+  return (
+    <article className="flex h-full flex-col items-center rounded-xl bg-[#ff9564] px-4 py-4 text-black lg:flex-row lg:justify-between lg:py-0">
+      <div className="flex flex-col items-center gap-1">
+        <div className="grid h-24 w-48 font-semibold text-black">
+          <span className="col-start-1 row-start-1 flex h-full items-center justify-center font-bold fluid-text-4xl">
+            {' '}
+            20%{' '}
+          </span>
 
-        <fieldset
-          role="presentation"
-          className="col-start-1 row-start-1 h-inherit w-inherit border border-transparent border-t-black "
-        >
-          <legend className="ml-2 font-semibold uppercase"> Upto </legend>
-        </fieldset>
+          <fieldset
+            role="presentation"
+            className="col-start-1 row-start-1 h-inherit w-inherit -rotate-180 border border-transparent border-t-black"
+          >
+            <legend className="ml-2 rotate-180 font-semibold uppercase"> Discount </legend>
+          </fieldset>
+
+          <fieldset
+            role="presentation"
+            className="col-start-1 row-start-1 h-inherit w-inherit border border-transparent border-t-black "
+          >
+            <legend className="ml-2 font-semibold uppercase"> Upto </legend>
+          </fieldset>
+        </div>
+        <h3 className="flex w-full flex-row justify-between text-sm uppercase">
+          {characterArray.map((letter, index) => (
+            <span key={index}>{letter}</span>
+          ))}
+        </h3>
       </div>
-      <h3 className="text-sm uppercase"> Enjoy your new sofa </h3>
-    </div>
-    <img src={Furniture} className="max-h-60 w-full max-w-96" alt="a bunch of furniture" />
-  </article>
-)
+      <img src={Furniture} className="w-full max-w-80 object-cover" alt="a bunch of furniture" />
+    </article>
+  )
+}
 
 const FeaturedProducts: React.FC = () => {
   return (
