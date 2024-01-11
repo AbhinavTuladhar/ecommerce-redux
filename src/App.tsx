@@ -33,12 +33,12 @@ const App = () => {
   // }, [products])
 
   return (
-    <div className={`min-h-[100dvh]  ${darkModeEnabled ? 'dark' : ''}`}>
-      <div className='duration-500 bg-white text-slate-800 dark:bg-gray-800 dark:text-white'>
-        <ScrollToTop />
+    <div className={`${darkModeEnabled ? 'dark' : ''}`}>
+      <div className='min-h-[100dvh] grid grid-rows-page-layout duration-500 bg-white text-slate-800 dark:bg-gray-800 dark:text-white'>
         <NavBar />
         <Router />
         <Footer />
+        <ScrollToTop />
       </div>
     </div>
   )

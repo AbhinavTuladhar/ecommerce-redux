@@ -18,6 +18,9 @@ export default {
         "products-grid": "repeat(auto-fit, minmax(min(256px, 100%), 1fr))",
         "footer-grid": "repeat(auto-fit, minmax(min(200px, 100%), 1fr))",
       },
+      gridTemplateRows: {
+        "page-layout": "auto 1fr auto",
+      },
     },
   },
   plugins: [],
