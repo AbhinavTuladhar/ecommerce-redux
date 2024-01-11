@@ -45,12 +45,26 @@ const cartSlice = createSlice({
           }
         }
       },
+    },
+    addQuantity: (state, payload: PayloadAction<number>) => {
+      const foundCartItem = state.find(item => item.id === payload.payload)!
+      foundCartItem.quantity++
+    },
+    subtractQuantity: (state, payload: PayloadAction<number>) => {
+      const { payload: productId } = payload
+      const foundCartItem = state.find(item => item.id === payload.payload)!
+      // Remove the item from the cart if its quantity is 1 and the user decreases it further
+      if (foundCartItem.quantity === 1) {
+        return state.filter(item => item.id !== productId)
+      } else {
+        foundCartItem.quantity--
+      }
     }
   }
 })
 
 export default cartSlice.reducer
 
-export const { addToCart } = cartSlice.actions
+export const { addToCart, addQuantity, subtractQuantity } = cartSlice.actions
 
 export const CartSelector = (state: RootState) => state.cart
