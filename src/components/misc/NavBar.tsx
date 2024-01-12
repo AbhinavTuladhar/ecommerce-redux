@@ -26,7 +26,7 @@ const NavBar: FC = () => {
         <h1 className="font-bold fluid-text-4xl">
           <NavLink to="/"> LOGO </NavLink>
         </h1>
-        <ul className="flex gap-x-6">
+        <ul className="flex flex-wrap gap-x-6">
           {navItems.map((nav, index) => (
             <li key={index} className="first:font-bold hover:cursor-pointer">
               {nav}

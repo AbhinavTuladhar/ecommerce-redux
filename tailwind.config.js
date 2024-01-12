@@ -21,8 +21,8 @@ export default {
       },
       gridTemplateColumns: {
         hero: '2fr 3fr',
-        'products-grid': 'repeat(auto-fit, minmax(min(256px, 100%), 1fr))',
-        'footer-grid': 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))',
+        'products-grid': 'repeat(auto-fit, minmax(min(256px, 90%), 1fr))',
+        'footer-grid': 'repeat(auto-fit, minmax(min(200px, 90%), 1fr))',
         'cart-grid': '1.95fr 1fr',
       },
       gridTemplateRows: {
