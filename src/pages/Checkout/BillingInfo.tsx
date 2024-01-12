@@ -13,18 +13,20 @@ const BillingInfo: FC<Props> = ({ handleInputChange, formData }) => {
     placeholder: string
     type: React.HTMLInputTypeAttribute
     name: BillingInfoNames
-    value: string | number
+    value: string | number | readonly string[] | undefined
   }
 
-  const { billingInfo } = formData
+  const {
+    billingInfo: { address, email, firstName, lastName, phone, town },
+  } = formData
 
   const formConstruct: Array<InputInterface> = [
-    { title: 'First Name', placeholder: 'First Name', type: 'text', name: 'firstName', value: billingInfo.firstName },
-    { title: 'Last Name', placeholder: 'Last Name', type: 'text', name: 'lastName', value: billingInfo.lastName },
-    { title: 'Email address', placeholder: 'Email address', type: 'email', name: 'email', value: billingInfo.email },
-    { title: 'Phone number', placeholder: 'Phone number', type: 'number', name: 'phone', value: billingInfo.phone },
-    { title: 'Address', placeholder: 'Address', type: 'text', name: 'address', value: billingInfo.address },
-    { title: 'Town or city', placeholder: 'Town or city', type: 'text', name: 'town', value: billingInfo.town },
+    { title: 'First Name', placeholder: 'First Name', type: 'text', name: 'firstName', value: firstName },
+    { title: 'Last Name', placeholder: 'Last Name', type: 'text', name: 'lastName', value: lastName },
+    { title: 'Email address', placeholder: 'Email address', type: 'email', name: 'email', value: email },
+    { title: 'Phone number', placeholder: 'Phone number', type: 'number', name: 'phone', value: phone },
+    { title: 'Address', placeholder: 'Address', type: 'text', name: 'address', value: address },
+    { title: 'Town or city', placeholder: 'Town or city', type: 'text', name: 'town', value: town },
   ]
 
   const mappedInputs = formConstruct.map((entry, index) => {
@@ -45,10 +47,16 @@ const BillingInfo: FC<Props> = ({ handleInputChange, formData }) => {
   })
 
   return (
-    <div className="flex flex-col gap-y-2">
-      <h2 className="mb-4 fluid-text-2xl">Billing Info</h2>
-      <div className="grid grid-cols-2 gap-x-8 gap-y-6">{mappedInputs}</div>
-    </div>
+    <section className="flex flex-col gap-y-4">
+      <div className="flex flex-col gap-y-2">
+        <h2 className="fluid-text-2xl">Billing Info</h2>
+        <div className="flex justify-between text-sm">
+          <span> Please enter your billing info </span>
+          <span> Step 1 of 5 </span>
+        </div>
+      </div>
+      <div className="xs:grid-cols-2 grid grid-cols-1 gap-x-8 gap-y-6">{mappedInputs}</div>
+    </section>
   )
 }
 

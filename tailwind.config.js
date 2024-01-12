@@ -32,6 +32,9 @@ export default {
       gridTemplateRows: {
         'page-layout': 'auto 1fr auto',
       },
+      screens: {
+        xs: '576px',
+      },
     },
   },
   plugins: [
