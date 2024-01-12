@@ -5,7 +5,7 @@ interface PageProps {
 }
 
 const PageLayout: FC<PageProps> = ({ children }) => {
-  return <main className="mx-auto flex w-11/12 flex-col py-4 md:w-5/6">{children}</main>
+  return <main className="mx-auto flex w-container flex-col py-4">{children}</main>
 }
 
 export default PageLayout
