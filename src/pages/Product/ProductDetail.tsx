@@ -17,15 +17,15 @@ const ProductDetail = () => {
       <div className="flex flex-col gap-y-4">
         <h4 className="uppercase fluid-text-lg">{category}</h4>
 
-        <h1 className="fluid-text-6xl">{title}</h1>
+        <h2 className="fluid-text-4xl">{title}</h2>
 
         <div className="flex items-center gap-x-1">
           <span> {rate} </span>
           <StarRating rating={rate} />
-          <span> ({count})</span>
+          <span className="underline"> ({count} customer reviews)</span>
         </div>
 
-        <span className="my-2 fluid-text-4xl"> ${price} </span>
+        <span className="my-2 fluid-text-3xl"> ${price} </span>
 
         <p> {description} </p>
 
