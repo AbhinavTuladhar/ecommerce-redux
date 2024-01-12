@@ -26,7 +26,7 @@ const AddToCartButton: FC<Props> = ({ id }) => {
   }
 
   return (
-    <>
+    <div>
       <button
         className="rounded-md bg-lightmode-green p-3 text-white duration-300 ease-out hover:cursor-pointer hover:bg-green-500 dark:bg-darkmode-green dark:hover:bg-green-600"
         onClick={handleCartAddition}
@@ -34,7 +34,7 @@ const AddToCartButton: FC<Props> = ({ id }) => {
         Add to cart
       </button>
       <ToastContainer theme={`${darkModeEnabled ? 'dark' : 'light'}`} autoClose={1250} />
-    </>
+    </div>
   )
 }
 

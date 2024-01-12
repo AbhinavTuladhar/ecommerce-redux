@@ -4,7 +4,7 @@ import React from 'react'
 
 const FeatureCardFirst = () => (
   <article className="flex h-full flex-col items-center justify-between gap-y-7 rounded-xl bg-[#c8a938] px-4 py-4 text-black lg:flex-col lg:justify-center lg:py-12">
-    <div className="flex flex-col gap-y-1 lg:items-center">
+    <div className="flex flex-col items-center gap-y-1">
       <h2 className="font-semibold uppercase fluid-text-2xl"> Newest clothes </h2>
       <h3 className="font-semibold uppercase fluid-text-5xl"> Big sale </h3>
     </div>
@@ -74,9 +74,9 @@ const FeatureCardThird = () => {
 
 const FeaturedProducts: React.FC = () => {
   return (
-    <div className="mx-auto flex w-container flex-col gap-8 py-8">
+    <div className="mx-auto flex w-container max-w-full flex-col gap-8 py-8">
       <h2 className="font-semibold uppercase fluid-text-3xl"> Featured products </h2>
-      <div className="mx-auto flex w-full flex-col gap-9 sm:w-[32rem] lg:grid lg:w-full lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-2">
+      <div className="mx-auto grid max-w-full grid-cols-1 gap-9 sm:w-[32rem] lg:w-full lg:grid-flow-col lg:grid-cols-featured-grid lg:grid-rows-2">
         <div className="row-span-1 lg:row-span-2">
           <FeatureCardFirst />
         </div>
