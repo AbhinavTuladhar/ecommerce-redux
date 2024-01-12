@@ -3,6 +3,7 @@ import findTotalItems from '@/helpers/findTotalItems'
 import findTotalAmount from '@/helpers/findTotalAmount'
 import { useAppSelector } from '@/hooks/reduxHooks'
 import { CartSelector } from '@/features/cart/cartSlice'
+import { NavLink } from 'react-router-dom'
 
 const OrderSummary = () => {
   const cart = useAppSelector(CartSelector)
@@ -32,9 +33,11 @@ const OrderSummary = () => {
           <span> Total amount </span>
           <span> {`$${(totalPrice + 30).toFixed(2)}`} </span>
         </div>
-        <button className="rounded-lg bg-slate-600 py-2 text-white duration-500 fluid-text-base hover:cursor-pointer hover:bg-slate-500 dark:bg-slate-800 hover:dark:bg-slate-700">
-          Go to checkout
-        </button>
+        <NavLink to="/checkout" className="justify-self-stretch">
+          <button className="w-full rounded-lg bg-slate-600 py-2 text-white duration-500 fluid-text-base hover:cursor-pointer hover:bg-slate-500 dark:bg-slate-800 hover:dark:bg-slate-700">
+            Go to checkout
+          </button>
+        </NavLink>
       </div>
     </section>
   )
