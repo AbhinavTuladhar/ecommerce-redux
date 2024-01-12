@@ -1,10 +1,10 @@
 export interface BillingInfoType {
-  firstName: string,
-  lastName: string,
-  email: string,
-  phone: number,
-  address: string,
-  town: string,
+  firstName: string
+  lastName: string
+  email: string
+  phone: number
+  address: string
+  town: string
 }
 
 export type BillingInfoNames = keyof BillingInfoType
