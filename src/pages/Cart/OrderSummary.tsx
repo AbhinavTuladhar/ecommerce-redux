@@ -17,7 +17,7 @@ const OrderSummary = () => {
   ]
 
   return (
-    <section className="border border-gray-300 dark:border-white">
+    <section className="border border-slate-300 dark:border-white">
       <SectionCardTitle>Order Summary</SectionCardTitle>
       <div className="mx-auto flex w-11/12 flex-col gap-y-4 pb-4 pt-6">
         <div className="flex flex-col gap-y-2">
@@ -32,6 +32,9 @@ const OrderSummary = () => {
           <span> Total amount </span>
           <span> {`$${(totalPrice + 30).toFixed(2)}`} </span>
         </div>
+        <button className="rounded-lg bg-slate-600 py-2 text-white duration-500 fluid-text-base hover:cursor-pointer hover:bg-slate-500 dark:bg-slate-800 hover:dark:bg-slate-700">
+          Go to checkout
+        </button>
       </div>
     </section>
   )

@@ -18,7 +18,7 @@ const starCount = (rating: number) => {
   return {
     whole: wholeStars,
     half: halfStars,
-    empty: 5 - (wholeStars + halfStars)
+    empty: 5 - (wholeStars + halfStars),
   }
 }
 

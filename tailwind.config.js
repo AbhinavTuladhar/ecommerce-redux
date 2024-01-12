@@ -19,7 +19,7 @@ export default {
       colors: {
         'lightmode-green': '#49a07f',
         'darkmode-green': '#0B6434',
-        complementary: '#372D1F',
+        complementary: '#181818',
         'complementary-light': '#f8f9fa',
       },
       gridTemplateColumns: {

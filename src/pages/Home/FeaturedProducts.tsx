@@ -24,7 +24,7 @@ const FeatureCardSecond = () => (
         <h2 className="uppercase fluid-text-xl"> Latest tech </h2>
         <h2 className="uppercase fluid-text-2xl"> Super sale </h2>
       </div>
-      <button className="self-center rounded-md bg-black p-3 font-semibold uppercase duration-500 fluid-text-lg hover:cursor-pointer hover:bg-gray-800 active:scale-95">
+      <button className="self-center rounded-md bg-black p-3 font-semibold uppercase duration-500 fluid-text-lg hover:cursor-pointer hover:bg-slate-800 active:scale-95">
         Shop now
       </button>
     </div>
