@@ -13,6 +13,9 @@ export default {
       height: {
         inherit: 'inherit',
       },
+      backgroundPosition: {
+        'left-bottom': 'left 2rem',
+      },
       colors: {
         'lightmode-green': '#49a07f',
         'darkmode-green': '#0B6434',
