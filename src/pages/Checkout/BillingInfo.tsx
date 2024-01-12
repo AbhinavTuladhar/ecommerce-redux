@@ -49,7 +49,7 @@ const BillingInfo: FC<Props> = ({ handleInputChange, formData }) => {
   return (
     <section className="flex flex-col gap-y-4">
       <div className="flex flex-col gap-y-2">
-        <h2 className="fluid-text-2xl">Billing Info</h2>
+        <h2 className="font-bold fluid-text-2xl">Billing Info</h2>
         <div className="flex justify-between text-sm">
           <span> Please enter your billing info </span>
           <span> Step 1 of 5 </span>
