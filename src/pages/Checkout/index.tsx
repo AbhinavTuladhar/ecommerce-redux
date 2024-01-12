@@ -1,10 +1,11 @@
 import PageTitle from '@/components/misc/PageTitle'
+import PageLayout from '@/components/misc/PageLayout'
 
 const Index = () => {
   return (
-    <main>
-      <PageTitle>Checkout</PageTitle>
-    </main>
+    <PageLayout>
+      <PageTitle> Checkout </PageTitle>
+    </PageLayout>
   )
 }
 

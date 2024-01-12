@@ -4,6 +4,7 @@ import { useAppSelector } from '@/hooks/reduxHooks'
 import { CartSelector } from '@/features/cart/cartSlice'
 import findTotalItems from '@/helpers/findTotalItems'
 import NoItemInfo from './NoItemInfo'
+import PageLayout from '@/components/misc/PageLayout'
 import PageTitle from '@/components/misc/PageTitle'
 
 const Index = () => {
@@ -11,7 +12,7 @@ const Index = () => {
   const isCartEmpty = findTotalItems(cart) === 0
 
   return (
-    <main className="mx-auto flex w-11/12 flex-col py-4 md:w-5/6">
+    <PageLayout>
       <PageTitle> Cart </PageTitle>
       {isCartEmpty ? (
         <NoItemInfo />
@@ -21,7 +22,7 @@ const Index = () => {
           <OrderSummary />
         </div>
       )}
-    </main>
+    </PageLayout>
   )
 }
 
