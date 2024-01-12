@@ -55,7 +55,7 @@ const BillingInfo: FC<Props> = ({ handleInputChange, formData }) => {
           <span> Step 1 of 5 </span>
         </div>
       </div>
-      <div className="xs:grid-cols-2 grid grid-cols-1 gap-x-8 gap-y-6">{mappedInputs}</div>
+      <div className="grid grid-cols-1 gap-x-8 gap-y-6 xs:grid-cols-2">{mappedInputs}</div>
     </section>
   )
 }

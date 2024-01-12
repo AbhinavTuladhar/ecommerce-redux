@@ -5,7 +5,11 @@ interface TitleProps {
 }
 
 const PageTitle: FC<TitleProps> = ({ children }) => {
-  return <h1 className="border-b border-slate-500 pb-4 text-center font-bold fluid-text-4xl">{children}</h1>
+  return (
+    <h1 className="border-b border-gray-300 pb-4 text-center font-bold fluid-text-4xl dark:border-gray-700">
+      {children}
+    </h1>
+  )
 }
 
 export default PageTitle

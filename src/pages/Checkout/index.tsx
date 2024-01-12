@@ -8,7 +8,7 @@ const Index = () => {
     <PageLayout>
       <PageTitle> Checkout </PageTitle>
       <div className="grid grid-cols-1 items-start gap-x-10 gap-y-8 py-10 md:grid-cols-cart-grid">
-        <section className="border border-blue-500">
+        <section className="proper-border">
           <div className="mx-auto w-container py-4">
             <ParentForm />
           </div>

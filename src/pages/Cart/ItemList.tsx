@@ -7,7 +7,7 @@ const ItemList = () => {
   const cartItems = useAppSelector(CartSelector)
 
   return (
-    <section className="border border-slate-300 dark:border-white">
+    <section className="proper-border">
       <SectionCardTitle>Items List</SectionCardTitle>
       {cartItems.map((item, index) => (
         <CartItemRow item={item} key={index} />

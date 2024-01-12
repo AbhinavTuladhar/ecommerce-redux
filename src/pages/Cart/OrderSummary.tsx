@@ -18,7 +18,7 @@ const OrderSummary = () => {
   ]
 
   return (
-    <section className="border border-slate-300 dark:border-white">
+    <section className="proper-border">
       <SectionCardTitle>Order Summary</SectionCardTitle>
       <div className="mx-auto flex w-11/12 flex-col gap-y-4 pb-4 pt-6">
         <div className="flex flex-col gap-y-2">
