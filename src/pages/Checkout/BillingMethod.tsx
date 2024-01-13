@@ -9,8 +9,8 @@ interface RowProps {
 
 const BillingMethodRow: FC<RowProps> = ({ method, image }) => {
   return (
-    <div className="proper-border flex flex-row items-center justify-between rounded-xl p-2">
-      <div className="flex w-10 flex-row items-center gap-x-4">
+    <div className="proper-border flex flex-col flex-wrap items-center justify-between gap-y-2 rounded-xl p-2 sm:flex-row">
+      <div className="flex w-10 flex-row items-center gap-x-1 sm:gap-x-4">
         <input type="radio" name="method" className="h-4 w-4" />
         <span className="font-bold"> {method}</span>
       </div>
