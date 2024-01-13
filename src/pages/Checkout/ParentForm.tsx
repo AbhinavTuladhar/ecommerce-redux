@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import BillingInfo from './BillingInfo'
 import BillingMethod from './BillingMethod'
+import PaymentMethod from './PaymentMethod'
 import type { MasterFormType, ChildSectionName } from './formsTypes'
 
 const ParentForm = () => {
@@ -33,6 +34,7 @@ const ParentForm = () => {
     <div className="flex flex-col gap-y-10">
       <BillingInfo formData={formData} handleInputChange={(e) => handleInputChange(e, 'billingInfo')} />
       <BillingMethod />
+      <PaymentMethod />
     </div>
   )
 }
