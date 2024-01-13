@@ -1,5 +1,5 @@
 import PageTitle from '@/components/misc/PageTitle'
-import PageLayout from '@/components/misc/PageLayout'
+import PageLayout from '@/components/layouts/PageLayout'
 import ParentForm from './ParentForm'
 import OrderSummary from '../Cart/OrderSummary'
 

@@ -4,7 +4,7 @@ import { useAppSelector } from '@/hooks/reduxHooks'
 import { CartSelector } from '@/features/cart/cartSlice'
 import findTotalItems from '@/helpers/findTotalItems'
 import NoItemInfo from './NoItemInfo'
-import PageLayout from '@/components/misc/PageLayout'
+import PageLayout from '@/components/layouts/PageLayout'
 import PageTitle from '@/components/misc/PageTitle'
 
 const Index = () => {
