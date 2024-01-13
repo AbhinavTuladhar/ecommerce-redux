@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import Input from '@/components/misc/Input'
 import type { MasterFormType } from './formsTypes'
 import type { BillingInfoNames } from './formsTypes'
 
@@ -34,14 +35,7 @@ const BillingInfo: FC<Props> = ({ handleInputChange, formData }) => {
     return (
       <div className="flex flex-col gap-y-1" key={index}>
         <span className="font-bold"> {title} </span>
-        <input
-          onChange={handleInputChange}
-          placeholder={placeholder}
-          className="rounded-xl p-2 text-black"
-          type={type}
-          name={name}
-          value={value}
-        />
+        <Input onChange={handleInputChange} placeholder={placeholder} type={type} name={name} value={value} />
       </div>
     )
   })
