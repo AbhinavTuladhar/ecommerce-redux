@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Visa from '@/assets/visa.svg'
 import Paypal from '@/assets/paypal.svg'
 import Input from '@/components/misc/Input'
+import Accordion from '@/components/layouts/Accordion'
 
 const PaymentMethod = () => {
   type PaymentChoice = 'visa' | 'paypal'
@@ -22,12 +23,8 @@ const PaymentMethod = () => {
           <img src={Visa} />
         </div>
 
-        <div
-          className={`grid transition-all duration-500 ${
-            selectedPayment === 'visa' ? 'grid-rows-[1fr] py-4' : 'grid-rows-[0fr]'
-          }`}
-        >
-          <div className="grid grid-cols-12 gap-x-4 gap-y-8 overflow-hidden">
+        <Accordion visible={selectedPayment === 'visa'}>
+          <div className="grid grid-cols-12 gap-x-4 gap-y-8">
             <div className="col-span-12 flex flex-col gap-y-1">
               <span className="font-bold">Card number </span>
               <Input type="text" placeholder="Card number" />
@@ -46,7 +43,7 @@ const PaymentMethod = () => {
               <Input type="text" placeholder="CVC" />
             </div>
           </div>
-        </div>
+        </Accordion>
       </div>
     </article>
   )
@@ -67,12 +64,8 @@ const PaymentMethod = () => {
           <img src={Paypal} />
         </div>
 
-        <div
-          className={`grid ${
-            selectedPayment === 'paypal' ? 'grid-rows-[1fr] py-4' : 'grid-rows-[0fr]'
-          } transition-all duration-500`}
-        >
-          <div className="grid grid-cols-2 gap-x-4 gap-y-8 overflow-hidden">
+        <Accordion visible={selectedPayment === 'paypal'}>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-8">
             <div className="col-span-1 flex flex-col gap-y-1">
               <span className="font-bold"> First name</span>
               <Input type="text" placeholder="First name" />
@@ -86,7 +79,7 @@ const PaymentMethod = () => {
               <Input type="email" placeholder="Email address" />
             </div>
           </div>
-        </div>
+        </Accordion>
       </div>
     </article>
   )
