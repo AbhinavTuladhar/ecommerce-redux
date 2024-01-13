@@ -30,15 +30,15 @@ const PaymentMethod = () => {
               <Input type="text" placeholder="Card number" />
             </div>
 
-            <div className="col-span-7 flex flex-col gap-y-1">
+            <div className="col-span-12 flex flex-col gap-y-1 lg:col-span-7">
               <span className="font-bold"> Card holder </span>
               <Input type="text" placeholder="Card holder" />
             </div>
-            <div className="col-span-3 flex flex-col gap-y-1">
+            <div className="col-span-6 flex flex-col gap-y-1 lg:col-span-3">
               <span className="font-bold"> Expiration Date </span>
               <Input type="date" placeholder="YYYY/MM/DD" />
             </div>
-            <div className="col-span-2 flex flex-col gap-y-1">
+            <div className="col-span-6 flex flex-col gap-y-1 lg:col-span-2">
               <span className="font-bold"> CVC </span>
               <Input type="text" placeholder="CVC" />
             </div>
@@ -65,7 +65,7 @@ const PaymentMethod = () => {
         </div>
 
         <Accordion visible={selectedPayment === 'paypal'}>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-8">
+          <div className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
             <div className="col-span-1 flex flex-col gap-y-1">
               <span className="font-bold"> First name</span>
               <Input type="text" placeholder="First name" />
@@ -74,7 +74,7 @@ const PaymentMethod = () => {
               <span className="font-bold"> Last name</span>
               <Input type="text" placeholder="Last name" />
             </div>
-            <div className="col-span-2 flex flex-col gap-y-1">
+            <div className="col-span-1 flex flex-col gap-y-1 sm:col-span-2">
               <span className="font-bold"> Email address</span>
               <Input type="email" placeholder="Email address" />
             </div>
@@ -90,7 +90,7 @@ const PaymentMethod = () => {
     <section className="flex flex-col gap-y-4">
       <div className="flex flex-col gap-y-2">
         <h2 className="font-bold fluid-text-2xl">Payment method</h2>
-        <div className="flex justify-between text-sm">
+        <div className="flex flex-wrap justify-between text-sm">
           <span> Please choose your payment method </span>
           <span> Step 3 of 5 </span>
         </div>
