@@ -12,8 +12,15 @@ const PaymentMethod = () => {
     setSelectedPayment(payload)
   }
 
+  const selectedMethodStyle = 'bg-transparent'
+  const unselectedMethodStyle = 'dark:bg-gray-900 bg-gray-100'
+
   const visaDiv = (
-    <article className="proper-border rounded-lg">
+    <article
+      className={`proper-border rounded-lg transition-all ${
+        selectedPayment === 'visa' ? selectedMethodStyle : unselectedMethodStyle
+      }`}
+    >
       <div className="px-2 py-4">
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-x-4">
@@ -49,7 +56,11 @@ const PaymentMethod = () => {
   )
 
   const paypalDiv = (
-    <article className="proper-border rounded-lg">
+    <article
+      className={`proper-border rounded-lg transition-all ${
+        selectedPayment === 'paypal' ? selectedMethodStyle : unselectedMethodStyle
+      }`}
+    >
       <div className="px-2 py-4">
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-x-4">
