@@ -19,7 +19,9 @@ const Index = () => {
       ) : (
         <div className="grid grid-cols-1 items-start gap-x-10 gap-y-8 py-10 md:grid-cols-cart-grid">
           <ItemList />
-          <OrderSummary />
+          <div className="sticky top-2">
+            <OrderSummary />
+          </div>
         </div>
       )}
     </PageLayout>
