@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import BillingInfo from './BillingInfo'
 import BillingMethod from './BillingMethod'
 import PaymentMethod from './PaymentMethod'
+import Additional from './Additional'
 import type { MasterFormType, ChildSectionName } from './formsTypes'
 
 const ParentForm = () => {
@@ -35,6 +36,7 @@ const ParentForm = () => {
       <BillingInfo formData={formData} handleInputChange={(e) => handleInputChange(e, 'billingInfo')} />
       <BillingMethod />
       <PaymentMethod />
+      <Additional />
     </div>
   )
 }
