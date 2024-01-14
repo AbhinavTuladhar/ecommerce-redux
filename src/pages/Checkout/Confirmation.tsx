@@ -17,7 +17,7 @@ const Confirmation = () => {
     <section className="space-y-6">
       <div className="space-y-2">
         <h2 className="font-bold fluid-text-2xl">Confirmation</h2>
-        <div className="flex justify-between text-sm">
+        <div className="flex flex-wrap justify-between gap-x-2 text-sm">
           <span> We are getting to the end. Just a few clicks and your order is ready! </span>
           <span> Step 5 of 5 </span>
         </div>

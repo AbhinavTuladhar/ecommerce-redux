@@ -3,7 +3,7 @@ const Additional = () => {
     <section className="space-y-6">
       <div className="space-y-2">
         <h2 className="font-bold fluid-text-2xl"> Additional Information </h2>
-        <div className="flex flex-wrap justify-between text-sm">
+        <div className="flex flex-wrap justify-between gap-x-2 text-sm">
           <span> Need something else? We will make it for you </span>
           <span> Step 4 of 5 </span>
         </div>
