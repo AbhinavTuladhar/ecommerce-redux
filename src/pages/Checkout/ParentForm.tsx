@@ -4,6 +4,7 @@ import BillingMethod from './BillingMethod'
 import PaymentMethod from './PaymentMethod'
 import Additional from './Additional'
 import type { MasterFormType, ChildSectionName } from './formsTypes'
+import Confirmation from './Confirmation'
 
 const ParentForm = () => {
   const [formData, setFormData] = useState<MasterFormType>({
@@ -32,12 +33,16 @@ const ParentForm = () => {
   }
 
   return (
-    <div className="flex flex-col gap-y-10">
+    <form className="space-y-10">
       <BillingInfo formData={formData} handleInputChange={(e) => handleInputChange(e, 'billingInfo')} />
       <BillingMethod />
       <PaymentMethod />
       <Additional />
-    </div>
+      <Confirmation />
+      <button className="rounded-lg border-green-700 bg-darkmode-green px-10 py-2 font-bold tracking-tight text-white">
+        Complete order
+      </button>
+    </form>
   )
 }
 
