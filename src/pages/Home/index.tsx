@@ -8,6 +8,7 @@ const index = () => {
       <Hero />
       <FeaturedProducts />
       <AllProducts />
+      <div className="progress fixed left-0 top-0 h-2 w-screen origin-left" />
     </>
   )
 }
