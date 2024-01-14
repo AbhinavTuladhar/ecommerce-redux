@@ -12,7 +12,7 @@ const ParentForm = () => {
       firstName: '',
       lastName: '',
       email: '',
-      phone: 0,
+      phone: '',
       address: '',
       town: '',
     },

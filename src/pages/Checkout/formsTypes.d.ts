@@ -2,7 +2,7 @@ export interface BillingInfoType {
   firstName: string
   lastName: string
   email: string
-  phone: number
+  phone: string
   address: string
   town: string
 }
