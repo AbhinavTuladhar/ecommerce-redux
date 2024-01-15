@@ -35,8 +35,7 @@ const CartItemRow: FC<RowProps> = ({ item }) => {
           <button onClick={handleIncrement}> + </button>
         </div>
         <span>
-          {' '}
-          {quantity} x ${price} = ${quantity * price}{' '}
+          {quantity} x ${price} = ${(quantity * price).toFixed(2)}
         </span>
       </div>
     </div>
