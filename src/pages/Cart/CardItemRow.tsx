@@ -26,7 +26,7 @@ const CartItemRow: FC<RowProps> = ({ item }) => {
         <img src={image} alt={name} className="aspect-auto h-20" />
       </div>
       <div className="md:w-6/12">
-        <h2 className="text-center font-bold fluid-text-xl md:text-left">{name}</h2>
+        <h2 className="line-clamp-2 text-center text-lg font-bold leading-snug md:text-left">{name}</h2>
       </div>
       <div className="flex flex-col items-center justify-between gap-y-4 md:w-4/12">
         <div className="flex w-full items-center justify-between fluid-text-lg">
