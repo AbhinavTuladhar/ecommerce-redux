@@ -10,7 +10,7 @@ const Index = () => {
     <PageLayout>
       <PageTitle> Checkout </PageTitle>
       <MainPageLayout>
-        <section className="proper-border">
+        <section className="proper-border rounded-lg">
           <div className="mx-auto w-container space-y-8 py-4">
             <ParentForm />
             <Security />
