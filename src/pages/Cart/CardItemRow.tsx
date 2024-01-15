@@ -21,7 +21,7 @@ const CartItemRow: FC<RowProps> = ({ item }) => {
   }
 
   return (
-    <div className="mx-auto flex w-11/12 flex-col items-center justify-center gap-x-10 gap-y-2 border-b border-slate-300 py-4 dark:border-slate-600 md:flex-row">
+    <div className="mx-auto flex w-11/12 flex-col items-center justify-center gap-x-10 gap-y-2 py-4 dark:border-slate-600 md:flex-row">
       <div className="md:w-2/12">
         <img src={image} alt={name} className="aspect-auto h-20" />
       </div>

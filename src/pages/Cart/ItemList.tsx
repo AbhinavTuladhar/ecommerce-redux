@@ -9,9 +9,11 @@ const ItemList = () => {
   return (
     <section className="proper-border">
       <SectionCardTitle>Items List</SectionCardTitle>
-      {cartItems.map((item, index) => (
-        <CartItemRow item={item} key={index} />
-      ))}
+      <div className="divide-y divide-gray-300 dark:divide-gray-700">
+        {cartItems.map((item, index) => (
+          <CartItemRow item={item} key={index} />
+        ))}
+      </div>
     </section>
   )
 }
