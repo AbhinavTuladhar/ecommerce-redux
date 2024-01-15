@@ -1,4 +1,3 @@
-import React from 'react'
 import SectionCardTitle from '@/components/misc/SectionCardTitle'
 import { useAppSelector } from '@/hooks/reduxHooks'
 import { CartSelector, CartItem } from '@/features/cart/cartSlice'
