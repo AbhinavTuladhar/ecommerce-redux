@@ -1,6 +1,7 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { FaSun } from 'react-icons/fa'
 import { FaMoon } from 'react-icons/fa'
+import { GiHamburgerMenu } from 'react-icons/gi'
 import { NavLink } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { DarkSelector, toggleDarkMode } from '@/features/dark/darkSlice'
@@ -11,6 +12,7 @@ const NavBar: FC = () => {
   const darkModeEnabled = useAppSelector(DarkSelector)
   const cart = useAppSelector(CartSelector)
   const dispatch = useAppDispatch()
+  const [isOpen, setIsOpen] = useState(true)
 
   const navItems = ['Home', 'About', 'Service', 'Product', 'Contact']
 
@@ -26,7 +28,13 @@ const NavBar: FC = () => {
         <h1 className="font-bold fluid-text-4xl">
           <NavLink to="/"> LOGO </NavLink>
         </h1>
-        <ul className="flex flex-wrap gap-x-6">
+        <ul
+          className={`${
+            isOpen
+              ? 'order-last flex w-full flex-col gap-y-2 text-center xs:order-none xs:w-auto xs:flex-row'
+              : 'hidden'
+          } flex-wrap gap-x-6 xs:flex xs:flex-row`}
+        >
           {navItems.map((nav, index) => (
             <li key={index} className="first:font-bold hover:cursor-pointer">
               {nav}
@@ -38,7 +46,13 @@ const NavBar: FC = () => {
             <FaSun className={`${darkModeEnabled ? 'hidden' : 'block'} h-6 w-6`} />
             <FaMoon className={`${darkModeEnabled ? 'block' : 'hidden'} h-6 w-6`} />
           </button>
-          <NavLink to="/cart"> Cart ({totalCartItems})</NavLink>
+          <NavLink to="/cart" className="hidden xs:block">
+            Cart ({totalCartItems})
+          </NavLink>
+          <GiHamburgerMenu
+            className="block h-6 w-6 hover:cursor-pointer xs:hidden"
+            onClick={() => setIsOpen((state) => !state)}
+          />
         </div>
       </div>
     </nav>
