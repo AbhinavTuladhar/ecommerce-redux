@@ -6,6 +6,7 @@ import findTotalItems from '@/helpers/findTotalItems'
 import NoItemInfo from './NoItemInfo'
 import PageLayout from '@/components/layouts/PageLayout'
 import PageTitle from '@/components/misc/PageTitle'
+import MainPageLayout from '@/components/layouts/MainPageLayout'
 
 const Index = () => {
   const cart = useAppSelector(CartSelector)
@@ -17,12 +18,12 @@ const Index = () => {
       {isCartEmpty ? (
         <NoItemInfo />
       ) : (
-        <div className="grid grid-cols-1 items-start gap-x-10 gap-y-8 py-10 md:grid-cols-cart-grid">
+        <MainPageLayout>
           <ItemList />
           <div className="sticky top-2">
             <OrderSummary />
           </div>
-        </div>
+        </MainPageLayout>
       )}
     </PageLayout>
   )

@@ -3,12 +3,13 @@ import PageLayout from '@/components/layouts/PageLayout'
 import ParentForm from './ParentForm'
 import Security from './Security'
 import OrderDetail from './OrderDetail'
+import MainPageLayout from '@/components/layouts/MainPageLayout'
 
 const Index = () => {
   return (
     <PageLayout>
       <PageTitle> Checkout </PageTitle>
-      <div className="grid grid-cols-1 items-start gap-x-10 gap-y-8 py-10 md:grid-cols-cart-grid">
+      <MainPageLayout>
         <section className="proper-border">
           <div className="mx-auto w-container space-y-8 py-4">
             <ParentForm />
@@ -16,7 +17,7 @@ const Index = () => {
           </div>
         </section>
         <OrderDetail />
-      </div>
+      </MainPageLayout>
     </PageLayout>
   )
 }

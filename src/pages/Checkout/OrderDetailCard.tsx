@@ -29,11 +29,11 @@ const OrderDetailCard: FC<DetailProps> = ({ item }) => {
 
   return (
     <div className="flex gap-x-4 px-2 py-4">
-      <div className="flex w-full max-w-12 items-center">
+      <div className="w-full max-w-12">
         <img src={image} />
       </div>
       <div className="flex-1 space-y-1">
-        <h2 className="font-bold leading-tight fluid-text-sm ">{title}</h2>
+        <h2 className="line-clamp-3 font-bold leading-tight fluid-text-sm">{title}</h2>
         <div className="-translate-x-[12.5%] scale-75">
           <StarRating rating={rate} />
         </div>
