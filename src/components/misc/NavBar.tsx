@@ -1,4 +1,5 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { FaSun } from 'react-icons/fa'
 import { FaMoon } from 'react-icons/fa'
 import { GiHamburgerMenu } from 'react-icons/gi'
@@ -14,6 +15,12 @@ const NavBar: FC = () => {
   const cart = useAppSelector(CartSelector)
   const dispatch = useAppDispatch()
   const [isOpen, setIsOpen] = useState(true)
+  const { pathname } = useLocation()
+
+  // Roll up navbar on small screens whenever location changes
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
 
   const navItems = ['Home', 'About', 'Service', 'Product', 'Contact']
 
