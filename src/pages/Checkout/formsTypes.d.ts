@@ -66,5 +66,5 @@ export type Action =
   | { type: ActionType.UPDATE_BILLING_METHOD; payload: BillingMethod }
   | { type: ActionType.UPDATE_PAYMENT_METHOD; payload: PaymentMethod }
   | { type: ActionType.UPDATE_ADDITIONAL_INFORMATION, payload: AdditionalInformation }
-  | { type: ActionType.UPDATE_CONFIRMATION_FLAGS, payload: ConfirmationFlags }
+  | { type: ActionType.UPDATE_CONFIRMATION_FLAGS, payload: number }
 

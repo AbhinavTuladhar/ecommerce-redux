@@ -27,8 +27,13 @@ const formReducer = (state: MasterFormType, action: Action): MasterFormType => {
         ...state,
         additionalInformation: action.payload,
       }
-    case ActionType.UPDATE_CONFIRMATION_FLAGS:
-      return { ...state }
+    case ActionType.UPDATE_CONFIRMATION_FLAGS: {
+      const { payload } = action
+      const newState = { ...state }
+      newState.confirmation = [...state.confirmation]
+      newState.confirmation[payload] = !newState.confirmation[payload]
+      return newState
+    }
     default:
       return { ...state }
   }
@@ -66,14 +71,6 @@ const ParentForm = () => {
     console.log(formState)
   }, [formState])
 
-  const handleAdditionalInfoChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const { value } = event.target
-    dispatch({
-      type: ActionType.UPDATE_ADDITIONAL_INFORMATION,
-      payload: value,
-    })
-  }
-
   const handleBillingInfoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
     dispatch({
@@ -84,13 +81,37 @@ const ParentForm = () => {
     })
   }
 
+  const handleAdditionalInfoChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { value } = event.target
+    dispatch({
+      type: ActionType.UPDATE_ADDITIONAL_INFORMATION,
+      payload: value,
+    })
+  }
+
+  const handleConfirmationChange = (event: React.ChangeEvent<HTMLInputElement>, index?: number) => {
+    const { target } = event
+    dispatch({
+      type: ActionType.UPDATE_CONFIRMATION_FLAGS,
+      payload: index || 0,
+    })
+  }
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+  }
+
   return (
-    <form className="space-y-10">
+    <form className="space-y-10" onSubmit={handleSubmit}>
       <BillingInfo formData={formState} handleInputChange={handleBillingInfoChange} />
       <BillingMethod />
       <PaymentMethod />
       <Additional formData={formState} handleInputChange={handleAdditionalInfoChange} />
-      <Confirmation />
+      <Confirmation
+        data={formState}
+        handleFirstInputChange={(e) => handleConfirmationChange(e, 0)}
+        handleSecondInputChange={(e) => handleConfirmationChange(e, 1)}
+      />
       <button className="rounded-lg border-green-700 bg-darkmode-green px-10 py-2 font-bold tracking-tight text-white">
         Complete order
       </button>
