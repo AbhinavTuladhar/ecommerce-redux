@@ -1,78 +1,12 @@
-import React, { useReducer, useEffect } from 'react'
+import React, { useReducer } from 'react'
 import BillingInfo from './BillingInfo'
 import BillingMethod from './BillingMethod'
 import PaymentMethod from './PaymentMethod'
 import Additional from './Additional'
-import type {
-  MasterFormType,
-  Action,
-  BillingMethod as BillingMethodType,
-  PaymentMethod as PaymentMethodType,
-} from './formsTypes'
+import type { MasterFormType, Action, BillingMethod as BillingMethodType } from './formsTypes'
 import { ActionType } from './enums'
 import Confirmation from './Confirmation'
-
-const formReducer = (state: MasterFormType, action: Action): MasterFormType => {
-  switch (action.type) {
-    case ActionType.UPDATE_BILLING_INFO:
-      return {
-        ...state,
-        billingInfo: {
-          ...state.billingInfo,
-          ...action.payload,
-        },
-      }
-
-    case ActionType.UPDATE_BILLING_METHOD:
-      return {
-        ...state,
-        billingMethod: action.payload,
-      }
-    case ActionType.UPDATE_PAYMENT_METHOD: {
-      const { payload } = action
-
-      // ChatGPT shenanigans :/
-      const updatedPaymentMethod: PaymentMethodType = {
-        ...state.paymentMethod,
-        ...(payload.creditCard
-          ? {
-              creditCard: {
-                ...state.paymentMethod.creditCard,
-                ...payload.creditCard,
-              },
-            }
-          : {}), // Only spread creditCard if it's present in the payload
-        ...(payload.paypal
-          ? {
-              paypal: {
-                ...state.paymentMethod.paypal,
-                ...payload.paypal,
-              },
-            }
-          : {}), // Only spread paypal if it's present in the payload
-      }
-
-      return {
-        ...state,
-        paymentMethod: updatedPaymentMethod,
-      }
-    }
-    case ActionType.UPDATE_ADDITIONAL_INFORMATION:
-      return {
-        ...state,
-        additionalInformation: action.payload,
-      }
-    case ActionType.UPDATE_CONFIRMATION_FLAGS: {
-      const { payload } = action
-      const newState = { ...state }
-      newState.confirmation = [...state.confirmation]
-      newState.confirmation[payload] = !newState.confirmation[payload]
-      return newState
-    }
-    default:
-      return { ...state }
-  }
-}
+import formReducer from '@/helpers/formReducer'
 
 const ParentForm = () => {
   const initialState: MasterFormType = {
@@ -106,10 +40,6 @@ const ParentForm = () => {
     formReducer,
     initialState,
   )
-
-  // useEffect(() => {
-  //   console.log(formState)
-  // }, [formState])
 
   const handleBillingInfoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -153,7 +83,7 @@ const ParentForm = () => {
     })
   }
 
-  const handleConfirmationChange = (event: React.ChangeEvent<HTMLInputElement>, index?: number) => {
+  const handleConfirmationChange = (index: number) => {
     dispatch({
       type: ActionType.UPDATE_CONFIRMATION_FLAGS,
       payload: index || 0,
@@ -173,8 +103,8 @@ const ParentForm = () => {
       <Additional formData={formState} handleInputChange={handleAdditionalInfoChange} />
       <Confirmation
         data={formState}
-        handleFirstInputChange={(e) => handleConfirmationChange(e, 0)}
-        handleSecondInputChange={(e) => handleConfirmationChange(e, 1)}
+        handleFirstInputChange={() => handleConfirmationChange(0)}
+        handleSecondInputChange={() => handleConfirmationChange(1)}
       />
       <button className="rounded-lg border-green-700 bg-darkmode-green px-10 py-2 font-bold tracking-tight text-white">
         Complete order
