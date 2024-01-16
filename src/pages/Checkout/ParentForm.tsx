@@ -1,9 +1,9 @@
-import React, { useReducer, Reducer, useEffect } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import BillingInfo from './BillingInfo'
 import BillingMethod from './BillingMethod'
 import PaymentMethod from './PaymentMethod'
 import Additional from './Additional'
-import type { MasterFormType, Action } from './formsTypes'
+import type { MasterFormType, Action, BillingMethod as BillingMethodType } from './formsTypes'
 import { ActionType } from './enums'
 import Confirmation from './Confirmation'
 
@@ -19,7 +19,10 @@ const formReducer = (state: MasterFormType, action: Action): MasterFormType => {
       }
 
     case ActionType.UPDATE_BILLING_METHOD:
-      return { ...state }
+      return {
+        ...state,
+        billingMethod: action.payload,
+      }
     case ActionType.UPDATE_PAYMENT_METHOD:
       return { ...state }
     case ActionType.UPDATE_ADDITIONAL_INFORMATION:
@@ -81,6 +84,14 @@ const ParentForm = () => {
     })
   }
 
+  const handleBillingMethodChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value as BillingMethodType
+    dispatch({
+      type: ActionType.UPDATE_BILLING_METHOD,
+      payload: value,
+    })
+  }
+
   const handleAdditionalInfoChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = event.target
     dispatch({
@@ -90,7 +101,6 @@ const ParentForm = () => {
   }
 
   const handleConfirmationChange = (event: React.ChangeEvent<HTMLInputElement>, index?: number) => {
-    const { target } = event
     dispatch({
       type: ActionType.UPDATE_CONFIRMATION_FLAGS,
       payload: index || 0,
@@ -104,7 +114,7 @@ const ParentForm = () => {
   return (
     <form className="space-y-10" onSubmit={handleSubmit}>
       <BillingInfo formData={formState} handleInputChange={handleBillingInfoChange} />
-      <BillingMethod />
+      <BillingMethod handleInputChange={handleBillingMethodChange} />
       <PaymentMethod />
       <Additional formData={formState} handleInputChange={handleAdditionalInfoChange} />
       <Confirmation
