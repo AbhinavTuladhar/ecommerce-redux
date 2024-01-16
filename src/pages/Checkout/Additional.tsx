@@ -1,4 +1,12 @@
-const Additional = () => {
+import React from 'react'
+import type { MasterFormType } from './formsTypes'
+
+interface Props {
+  formData?: MasterFormType
+  handleInputChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
+}
+
+const Additional: React.FC<Props> = ({ formData, handleInputChange }) => {
   return (
     <section className="space-y-6">
       <div className="space-y-2">
@@ -11,8 +19,10 @@ const Additional = () => {
       <div className="flex flex-col space-y-1">
         <span className="font-bold">Order notes</span>
         <textarea
-          className="h-24 min-h-12 rounded-xl border border-gray-300  bg-gray-100 p-2 dark:bg-white"
+          className="h-24 min-h-12 rounded-xl border border-gray-300 bg-gray-100  p-2 text-black dark:bg-white"
           placeholder="Need a specific delivery day? Sending a gift? Let's say ..."
+          value={formData?.additionalInformation}
+          onChange={handleInputChange}
         />
       </div>
     </section>
