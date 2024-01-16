@@ -16,6 +16,17 @@ const ParentForm = () => {
       address: '',
       town: '',
     },
+    billingMethod: 'fedex',
+    paymentMethod: {
+      creditCard: {
+        cardHolder: '',
+        cardNumber: '',
+        expirationDate: null,
+        CVC: 0,
+      },
+    },
+    additionalInformation: '',
+    confirmation: [false, false],
   })
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, section: ChildSectionName) => {

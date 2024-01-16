@@ -18,7 +18,7 @@ export type BillingMethod = 'fedex' | 'dhl'
 interface CreditCard {
   cardNumber: string,
   cardHolder: string,
-  expirationDate: Date,
+  expirationDate: Date | null,
   CVC: number
 }
 
