@@ -62,7 +62,7 @@ export interface MasterFormType {
 }
 
 export type Action =
-  | { type: ActionType.UPDATE_BILLING_INFO; payload: BillingInfoType }
+  | { type: ActionType.UPDATE_BILLING_INFO; payload: Partial<BillingInfoType> }
   | { type: ActionType.UPDATE_BILLING_METHOD; payload: BillingMethod }
   | { type: ActionType.UPDATE_PAYMENT_METHOD; payload: PaymentMethod }
   | { type: ActionType.UPDATE_ADDITIONAL_INFORMATION, payload: AdditionalInformation }
