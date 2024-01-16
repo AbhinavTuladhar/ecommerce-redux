@@ -114,7 +114,7 @@ const ParentForm = () => {
   return (
     <form className="space-y-10" onSubmit={handleSubmit}>
       <BillingInfo formData={formState} handleInputChange={handleBillingInfoChange} />
-      <BillingMethod handleInputChange={handleBillingMethodChange} />
+      <BillingMethod formData={formState} handleInputChange={handleBillingMethodChange} />
       <PaymentMethod />
       <Additional formData={formState} handleInputChange={handleAdditionalInfoChange} />
       <Confirmation
