@@ -7,7 +7,10 @@ interface RowProps {
 const ConfirmationRow: FC<RowProps> = ({ children }) => {
   return (
     <div className="rounded-xl border border-gray-300 bg-gray-100 p-2 text-black outline-1 outline-offset-0 dark:bg-gray-900 dark:text-white">
-      {children}
+      <div className="flex flex-row items-start gap-x-2">
+        <input type="checkbox" className="w-h-6 h-6" />
+        {children}
+      </div>
     </div>
   )
 }
@@ -24,16 +27,10 @@ const Confirmation = () => {
       </div>
       <div className="space-y-4">
         <ConfirmationRow>
-          <div className="flex flex-row items-start gap-x-2">
-            <input type="checkbox" className="w-h-6 h-6" />
-            <span>I agree with sending an marketing and newsletter emails. No spam, promised!</span>
-          </div>
+          <span>I agree with sending an marketing and newsletter emails. No spam, promised!</span>
         </ConfirmationRow>
         <ConfirmationRow>
-          <div className="flex flex-row items-start gap-x-2">
-            <input type="checkbox" className="w-h-6 h-6" />
-            <span>I agree with our terms and conditions and privacy policy.</span>
-          </div>
+          <span>I agree with our terms and conditions and privacy policy.</span>
         </ConfirmationRow>
       </div>
     </section>
