@@ -29,18 +29,18 @@ interface Paypal {
 }
 
 
-interface BillingCreditCard {
+interface PaymentCreditCard {
   creditCard: CreditCard,
   paypal?: never
 }
 
-interface BillingPayPal {
+interface PaymentPayPal {
   creditCard?: never,
   paypal: Paypal
 }
 
 // Either CreditCard OR Paypal - not both.
-export type BillingMethod = BillingCreditCard | BillingPayPal
+export type PaymentMethod = PaymentCreditCard | PaymentPayPal
 /**
  * Payment method end
  */
@@ -52,5 +52,9 @@ export type ConfirmationFlags = [boolean, boolean]
 export type ChildSectionName = 'billingInfo'
 
 export interface MasterFormType {
-  billingInfo: BillingInfoType
+  billingInfo: BillingInfoType,
+  billingMethod: BillingMethod,
+  paymentMethod: PaymentMethod,
+  additionalInformation?: string,
+  confirmation: ConfirmationFlags
 }
