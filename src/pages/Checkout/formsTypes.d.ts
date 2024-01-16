@@ -20,7 +20,7 @@ export type BillingMethod = 'fedex' | 'dhl'
 interface CreditCard {
   cardNumber: string,
   cardHolder: string,
-  expirationDate: Date | null,
+  expirationDate: string
   CVC: number
 }
 
@@ -42,7 +42,11 @@ interface PaymentPayPal {
 }
 
 // Either CreditCard OR Paypal - not both.
-export type PaymentMethod = PaymentCreditCard | PaymentPayPal
+// export type PaymentMethod = PaymentCreditCard | PaymentPayPal
+export interface PaymentMethod {
+  creditCard?: CreditCard,
+  paypal?: Paypal,
+}
 /**
  * Payment method end
  */
@@ -64,7 +68,7 @@ export interface MasterFormType {
 export type Action =
   | { type: ActionType.UPDATE_BILLING_INFO; payload: Partial<BillingInfoType> }
   | { type: ActionType.UPDATE_BILLING_METHOD; payload: BillingMethod }
-  | { type: ActionType.UPDATE_PAYMENT_METHOD; payload: PaymentMethod }
+  | { type: ActionType.UPDATE_PAYMENT_METHOD; payload: Partial<PaymentMethod> }
   | { type: ActionType.UPDATE_ADDITIONAL_INFORMATION, payload: AdditionalInformation }
   | { type: ActionType.UPDATE_CONFIRMATION_FLAGS, payload: number }
 

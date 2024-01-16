@@ -3,7 +3,12 @@ import BillingInfo from './BillingInfo'
 import BillingMethod from './BillingMethod'
 import PaymentMethod from './PaymentMethod'
 import Additional from './Additional'
-import type { MasterFormType, Action, BillingMethod as BillingMethodType } from './formsTypes'
+import type {
+  MasterFormType,
+  Action,
+  BillingMethod as BillingMethodType,
+  PaymentMethod as PaymentMethodType,
+} from './formsTypes'
 import { ActionType } from './enums'
 import Confirmation from './Confirmation'
 
@@ -23,8 +28,35 @@ const formReducer = (state: MasterFormType, action: Action): MasterFormType => {
         ...state,
         billingMethod: action.payload,
       }
-    case ActionType.UPDATE_PAYMENT_METHOD:
-      return { ...state }
+    case ActionType.UPDATE_PAYMENT_METHOD: {
+      const { payload } = action
+
+      // ChatGPT shenanigans :/
+      const updatedPaymentMethod: PaymentMethodType = {
+        ...state.paymentMethod,
+        ...(payload.creditCard
+          ? {
+              creditCard: {
+                ...state.paymentMethod.creditCard,
+                ...payload.creditCard,
+              },
+            }
+          : {}), // Only spread creditCard if it's present in the payload
+        ...(payload.paypal
+          ? {
+              paypal: {
+                ...state.paymentMethod.paypal,
+                ...payload.paypal,
+              },
+            }
+          : {}), // Only spread paypal if it's present in the payload
+      }
+
+      return {
+        ...state,
+        paymentMethod: updatedPaymentMethod,
+      }
+    }
     case ActionType.UPDATE_ADDITIONAL_INFORMATION:
       return {
         ...state,
@@ -57,8 +89,13 @@ const ParentForm = () => {
       creditCard: {
         cardHolder: '',
         cardNumber: '',
-        expirationDate: null,
+        expirationDate: '',
         CVC: 0,
+      },
+      paypal: {
+        firstName: '',
+        lastName: '',
+        email: '',
       },
     },
     additionalInformation: '',
@@ -70,9 +107,9 @@ const ParentForm = () => {
     initialState,
   )
 
-  useEffect(() => {
-    console.log(formState)
-  }, [formState])
+  // useEffect(() => {
+  //   console.log(formState)
+  // }, [formState])
 
   const handleBillingInfoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -89,6 +126,22 @@ const ParentForm = () => {
     dispatch({
       type: ActionType.UPDATE_BILLING_METHOD,
       payload: value,
+    })
+  }
+
+  const handlePaymentMethodChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target
+
+    // Splitting the name of the input as mentioned in the PaymentMethod JSX
+    const [paymentMethodKey, nestedKey] = name.split(' ')
+
+    dispatch({
+      type: ActionType.UPDATE_PAYMENT_METHOD,
+      payload: {
+        [paymentMethodKey]: {
+          [nestedKey]: value,
+        },
+      },
     })
   }
 
@@ -109,13 +162,14 @@ const ParentForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    console.log(formState)
   }
 
   return (
     <form className="space-y-10" onSubmit={handleSubmit}>
       <BillingInfo formData={formState} handleInputChange={handleBillingInfoChange} />
       <BillingMethod formData={formState} handleInputChange={handleBillingMethodChange} />
-      <PaymentMethod />
+      <PaymentMethod formData={formState} handleInputChange={handlePaymentMethodChange} />
       <Additional formData={formState} handleInputChange={handleAdditionalInfoChange} />
       <Confirmation
         data={formState}
