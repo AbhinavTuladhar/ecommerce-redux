@@ -7,6 +7,7 @@ import type { MasterFormType, Action, BillingMethod as BillingMethodType } from 
 import { ActionType } from './enums'
 import Confirmation from './Confirmation'
 import formReducer from '@/helpers/formReducer'
+import validateForm from '@/helpers/validateForm'
 
 const ParentForm = () => {
   const initialState: MasterFormType = {
@@ -92,7 +93,12 @@ const ParentForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log(formState)
+    const errors = validateForm(formState)
+    if (errors.length === 0) {
+      console.log('Form validated!')
+    } else {
+      console.error(errors)
+    }
   }
 
   return (

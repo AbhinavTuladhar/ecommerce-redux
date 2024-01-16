@@ -44,8 +44,8 @@ interface PaymentPayPal {
 // Either CreditCard OR Paypal - not both.
 // export type PaymentMethod = PaymentCreditCard | PaymentPayPal
 export interface PaymentMethod {
-  creditCard?: CreditCard,
-  paypal?: Paypal,
+  creditCard: CreditCard,
+  paypal: Paypal,
 }
 /**
  * Payment method end
