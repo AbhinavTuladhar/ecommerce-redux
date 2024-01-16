@@ -1,3 +1,5 @@
+import { ActionType } from "./enums"
+
 export interface BillingInfoType {
   firstName: string
   lastName: string
@@ -57,16 +59,6 @@ export interface MasterFormType {
   paymentMethod: PaymentMethod,
   additionalInformation?: string,
   confirmation: ConfirmationFlags
-}
-
-
-// TYPES FOR THE REDUCER FUNCTION
-export enum ActionType {
-  'UPDATE_BILLING_INFO',
-  'UPDATE_BILLING_METHOD',
-  'UPDATE_PAYMENT_METHOD',
-  'UPDATE_ADDITIONAL_INFORMATION',
-  'UPDATE_CONFIRMATION_FLAGS'
 }
 
 export type Action =
