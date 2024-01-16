@@ -1,4 +1,4 @@
-import type { MasterFormType } from "@/pages/Checkout/formsTypes";
+import type { MasterFormType } from '@/pages/Checkout/formsTypes'
 
 /**
  * Returns true if even ONE of the values is either non 0 or a non-empty string.
@@ -6,7 +6,7 @@ import type { MasterFormType } from "@/pages/Checkout/formsTypes";
  * @returns An array of errors. Empty if there are none.
  */
 const isNotEmpty = (obj: object): boolean => {
-  return Object.values(obj).some(value => value !== 0 && value !== '')
+  return Object.values(obj).some((value) => value !== 0 && value !== '')
 }
 
 const validateForm = (form: MasterFormType): string[] => {

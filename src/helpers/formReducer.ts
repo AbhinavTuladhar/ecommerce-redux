@@ -1,5 +1,5 @@
-import { ActionType } from "@/pages/Checkout/enums"
-import type { Action, MasterFormType, PaymentMethod } from "@/pages/Checkout/formsTypes"
+import { ActionType } from '@/pages/Checkout/enums'
+import type { Action, MasterFormType, PaymentMethod } from '@/pages/Checkout/formsTypes'
 
 const formReducer = (state: MasterFormType, action: Action): MasterFormType => {
   switch (action.type) {
@@ -17,6 +17,7 @@ const formReducer = (state: MasterFormType, action: Action): MasterFormType => {
         ...state,
         billingMethod: action.payload,
       }
+
     case ActionType.UPDATE_PAYMENT_METHOD: {
       const { payload } = action
 
@@ -46,11 +47,13 @@ const formReducer = (state: MasterFormType, action: Action): MasterFormType => {
         paymentMethod: updatedPaymentMethod,
       }
     }
+
     case ActionType.UPDATE_ADDITIONAL_INFORMATION:
       return {
         ...state,
         additionalInformation: action.payload,
       }
+
     case ActionType.UPDATE_CONFIRMATION_FLAGS: {
       const { payload } = action
       const newState = { ...state }
@@ -58,6 +61,7 @@ const formReducer = (state: MasterFormType, action: Action): MasterFormType => {
       newState.confirmation[payload] = !newState.confirmation[payload]
       return newState
     }
+
     default:
       return { ...state }
   }

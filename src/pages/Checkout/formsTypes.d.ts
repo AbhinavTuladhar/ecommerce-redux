@@ -1,4 +1,4 @@
-import { ActionType } from "./enums"
+import { ActionType } from './enums'
 
 export interface BillingInfoType {
   firstName: string
@@ -18,34 +18,33 @@ export type BillingMethod = 'fedex' | 'dhl'
  * Payment method start
  */
 interface CreditCard {
-  cardNumber: string,
-  cardHolder: string,
+  cardNumber: string
+  cardHolder: string
   expirationDate: string
   CVC: number
 }
 
 interface Paypal {
-  firstName: string,
-  lastName: string,
+  firstName: string
+  lastName: string
   email: string
 }
 
-
 interface PaymentCreditCard {
-  creditCard: CreditCard,
+  creditCard: CreditCard
   paypal?: never
 }
 
 interface PaymentPayPal {
-  creditCard?: never,
+  creditCard?: never
   paypal: Paypal
 }
 
 // Either CreditCard OR Paypal - not both.
 // export type PaymentMethod = PaymentCreditCard | PaymentPayPal
 export interface PaymentMethod {
-  creditCard: CreditCard,
-  paypal: Paypal,
+  creditCard: CreditCard
+  paypal: Paypal
 }
 /**
  * Payment method end
@@ -58,10 +57,10 @@ export type ConfirmationFlags = [boolean, boolean]
 export type ChildSectionName = 'billingInfo'
 
 export interface MasterFormType {
-  billingInfo: BillingInfoType,
-  billingMethod: BillingMethod,
-  paymentMethod: PaymentMethod,
-  additionalInformation?: string,
+  billingInfo: BillingInfoType
+  billingMethod: BillingMethod
+  paymentMethod: PaymentMethod
+  additionalInformation?: string
   confirmation: ConfirmationFlags
 }
 
@@ -69,6 +68,5 @@ export type Action =
   | { type: ActionType.UPDATE_BILLING_INFO; payload: Partial<BillingInfoType> }
   | { type: ActionType.UPDATE_BILLING_METHOD; payload: BillingMethod }
   | { type: ActionType.UPDATE_PAYMENT_METHOD; payload: Partial<PaymentMethod> }
-  | { type: ActionType.UPDATE_ADDITIONAL_INFORMATION, payload: AdditionalInformation }
-  | { type: ActionType.UPDATE_CONFIRMATION_FLAGS, payload: number }
-
+  | { type: ActionType.UPDATE_ADDITIONAL_INFORMATION; payload: AdditionalInformation }
+  | { type: ActionType.UPDATE_CONFIRMATION_FLAGS; payload: number }
