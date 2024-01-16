@@ -58,3 +58,21 @@ export interface MasterFormType {
   additionalInformation?: string,
   confirmation: ConfirmationFlags
 }
+
+
+// TYPES FOR THE REDUCER FUNCTION
+export enum ActionType {
+  'UPDATE_BILLING_INFO',
+  'UPDATE_BILLING_METHOD',
+  'UPDATE_PAYMENT_METHOD',
+  'UPDATE_ADDITIONAL_INFORMATION',
+  'UPDATE_CONFIRMATION_FLAGS'
+}
+
+export type Action =
+  | { type: ActionType.UPDATE_BILLING_INFO; payload: BillingInfoType }
+  | { type: ActionType.UPDATE_BILLING_METHOD; payload: BillingMethod }
+  | { type: ActionType.UPDATE_PAYMENT_METHOD; payload: PaymentMethod }
+  | { type: ActionType.UPDATE_ADDITIONAL_INFORMATION, payload: AdditionalInformation }
+  | { type: ActionType.UPDATE_CONFIRMATION_FLAGS, payload: ConfirmationFlags }
+
