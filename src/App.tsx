@@ -27,10 +27,6 @@ const App = () => {
   //   }
   // }, [dispatch])
 
-  // useEffect(() => {
-  //   console.log(products)
-  // }, [products])
-
   return (
     <div className={`${darkModeEnabled ? 'dark' : ''}`}>
       <div className="grid min-h-[100dvh] grid-rows-page-layout bg-white text-slate-800 duration-500 dark:bg-slate-900 dark:text-white">
