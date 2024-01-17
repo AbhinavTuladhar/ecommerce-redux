@@ -1,13 +1,21 @@
 import { RootState } from '@/store'
 import { createSlice } from '@reduxjs/toolkit'
+import getInitialMode, { storageKey } from '@/helpers/getInitialMode'
 
-const initialState: boolean = true
+const initialSystemState = getInitialMode()
+
+const initialState: boolean = initialSystemState === 'dark'
 
 const darkSlice = createSlice({
   name: 'dark',
   initialState,
   reducers: {
-    toggleDarkMode: (state) => !state,
+    toggleDarkMode: (state) => {
+      // Store the opposite state
+      const stateToStore = state ? 'light' : 'dark'
+      localStorage.setItem(storageKey, stateToStore)
+      return !state
+    },
     setDarkMode: () => true,
   },
 })
