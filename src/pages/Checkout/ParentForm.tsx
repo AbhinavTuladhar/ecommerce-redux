@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import BillingInfo from './BillingInfo'
 import BillingMethod from './BillingMethod'
 import PaymentMethod from './PaymentMethod'
@@ -8,6 +8,7 @@ import { ActionType } from './enums'
 import Confirmation from './Confirmation'
 import formReducer from '@/helpers/formReducer'
 import validateForm from '@/helpers/validateForm'
+import ModalContainer from '@/components/layouts/ModalContainer'
 
 const ParentForm = () => {
   const initialState: MasterFormType = {
@@ -35,6 +36,13 @@ const ParentForm = () => {
     },
     additionalInformation: '',
     confirmation: [false, false],
+  }
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [errors, setErrors] = useState<string[]>([])
+
+  const toggleModal = () => {
+    setIsModalOpen((state) => !state)
   }
 
   const [formState, dispatch] = useReducer<(state: MasterFormType, actions: Action) => MasterFormType>(
@@ -93,16 +101,26 @@ const ParentForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const errors = validateForm(formState)
-    if (errors.length === 0) {
-      console.log('Form validated!')
+    const errorList = validateForm(formState)
+    setErrors(errorList)
+
+    if (errorList.length === 0) {
+      setIsSubmitted(true) // Form is valid and submitted
     } else {
-      console.error(errors)
+      toggleModal() // Form is not valid, open the modal
     }
   }
 
+  useEffect(() => {
+    if (isSubmitted) {
+      // Perform navigation logic here (e.g., redirect to another page)
+      console.log('Form submitted successfully!')
+      console.log('The form data is: ', formState)
+    }
+  }, [isSubmitted, formState])
+
   return (
-    <form className="space-y-10" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-y-10" onSubmit={handleSubmit}>
       <BillingInfo formData={formState} handleInputChange={handleBillingInfoChange} />
       <BillingMethod formData={formState} handleInputChange={handleBillingMethodChange} />
       <PaymentMethod formData={formState} handleInputChange={handlePaymentMethodChange} />
@@ -112,9 +130,23 @@ const ParentForm = () => {
         handleFirstInputChange={() => handleConfirmationChange(0)}
         handleSecondInputChange={() => handleConfirmationChange(1)}
       />
-      <button className="rounded-lg border-green-700 bg-darkmode-green px-10 py-2 font-bold tracking-tight text-white">
+      <button className="self-start rounded-lg border-green-700 bg-darkmode-green px-10 py-2 font-bold tracking-tight text-white">
         Complete order
       </button>
+
+      <ModalContainer isVisible={isModalOpen} closeModal={toggleModal}>
+        <div className="flex flex-col gap-y-8">
+          <div className="space-y-2">
+            <h2 className="font-bold text-red-500 fluid-text-xl"> You have not filled the details correctly! </h2>
+            <h4 className="font-bold"> Please read the information below and correct your information. </h4>
+          </div>
+          <div className="space-y-2">
+            {errors.map((error, index) => (
+              <p key={index}> {error} </p>
+            ))}
+          </div>
+        </div>
+      </ModalContainer>
     </form>
   )
 }
