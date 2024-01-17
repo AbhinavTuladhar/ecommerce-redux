@@ -4,6 +4,7 @@ import { FaSun } from 'react-icons/fa'
 import { FaMoon } from 'react-icons/fa'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { NavLink } from 'react-router-dom'
+import Logo from '@/assets/logo.png'
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { DarkSelector, toggleDarkMode } from '@/features/dark/darkSlice'
 import { CartSelector } from '@/features/cart/cartSlice'
@@ -40,7 +41,9 @@ const NavBar: FC = () => {
     <nav className="relative flex flex-wrap border-b border-transparent shadow-lg dark:border-slate-950 dark:shadow-none">
       <div className="mx-auto flex w-container flex-wrap items-center justify-between py-4">
         <h1 className="font-bold fluid-text-4xl">
-          <NavLink to="/"> LOGO </NavLink>
+          <NavLink to="/">
+            <img src={Logo} alt="logo" className="h-9 w-12" />
+          </NavLink>
         </h1>
 
         {/* For large-screen links */}
