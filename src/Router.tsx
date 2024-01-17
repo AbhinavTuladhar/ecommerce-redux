@@ -8,13 +8,19 @@ import ThankYou from '@/pages/ThankYou'
 const Router = () => {
   const location = useLocation()
 
+  const routes = [
+    { path: '/', element: <Home />, key: 'Home' },
+    { path: '/product/:id', element: <Product />, key: 'product' },
+    { path: '/cart', element: <Cart />, key: 'cart' },
+    { path: '/checkout', element: <Checkout />, key: 'checkout' },
+    { path: '/thankyou', element: <ThankYou />, key: 'thankyou' },
+  ]
+
   return (
     <Routes location={location} key={location.pathname}>
-      <Route path="" element={<Home />} key="home" />
-      <Route path="/product/:id" element={<Product />} key="product" />
-      <Route path="/cart" element={<Cart />} key="cart" />
-      <Route path="/checkout" element={<Checkout />} key="checkout" />
-      <Route path="/thankyou" element={<ThankYou />} key="thankyou" />
+      {routes.map((route) => (
+        <Route path={route.path} element={route.element} key={route.key} />
+      ))}
     </Routes>
   )
 }
