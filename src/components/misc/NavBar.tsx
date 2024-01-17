@@ -1,9 +1,8 @@
 import { FC, useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, NavLink } from 'react-router-dom'
 import { FaSun } from 'react-icons/fa'
 import { FaMoon } from 'react-icons/fa'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { NavLink } from 'react-router-dom'
 import Logo from '@/assets/logo.png'
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { DarkSelector, toggleDarkMode } from '@/features/dark/darkSlice'
@@ -23,7 +22,13 @@ const NavBar: FC = () => {
     setIsOpen(false)
   }, [pathname])
 
-  const navItems = ['Home', 'About', 'Service', 'Product', 'Contact']
+  const navItemsNew = [
+    { to: '/', text: 'Home' },
+    { to: '/about', text: 'About' },
+    { to: '/service', text: 'Service' },
+    { to: '/products', text: 'Product' },
+    { to: '/contact', text: 'Contact' },
+  ]
 
   const totalCartItems = findTotalItems(cart)
 
@@ -31,11 +36,33 @@ const NavBar: FC = () => {
     dispatch(toggleDarkMode())
   }
 
-  const navLinks = navItems.map((nav, index) => (
-    <li key={index} className="flex items-center py-2 first:font-bold hover:cursor-pointer">
-      {nav}
+  const navLinkStyle = 'flex items-center py-2 hover:cursor-pointer'
+
+  const navLinks = navItemsNew.map((item, index) => (
+    <li key={index} className="">
+      <NavLink
+        to={item.to}
+        className={(options) => {
+          const { isActive } = options
+          return isActive ? `${navLinkStyle} font-bold` : navLinkStyle
+        }}
+      >
+        {item.text}
+      </NavLink>
     </li>
   ))
+
+  const cartLink = (
+    <NavLink
+      to="/cart"
+      className={(options) => {
+        const { isActive } = options
+        return isActive ? 'font-bold' : ''
+      }}
+    >
+      Cart ({totalCartItems})
+    </NavLink>
+  )
 
   return (
     <nav className="relative flex flex-wrap border-b border-transparent shadow-lg dark:border-slate-950 dark:shadow-none">
@@ -54,24 +81,20 @@ const NavBar: FC = () => {
             <FaSun className={`${darkModeEnabled ? 'hidden' : 'block'} h-6 w-6`} />
             <FaMoon className={`${darkModeEnabled ? 'block' : 'hidden'} h-6 w-6`} />
           </button>
-          <NavLink to="/cart" className="hidden xs:block">
-            Cart ({totalCartItems})
-          </NavLink>
+          <span className="hidden xs:block">{cartLink}</span>
           <GiHamburgerMenu
             className="block h-6 w-6 hover:cursor-pointer xs:hidden"
             onClick={() => setIsOpen((state) => !state)}
           />
-
-          {/* Mobile links */}
         </div>
+
+        {/* Mobile links */}
         <div className="block w-full xs:hidden">
           <Accordion visible={isOpen}>
-            <div className="gap flex flex-col justify-center divide-y border-b">
+            <ul className="gap flex flex-col justify-center divide-y border-b">
               {navLinks}
-              <NavLink to="/cart" className="py-2 font-bold">
-                Cart ({totalCartItems})
-              </NavLink>
-            </div>
+              <li className="py-2">{cartLink}</li>
+            </ul>
           </Accordion>
         </div>
       </div>
