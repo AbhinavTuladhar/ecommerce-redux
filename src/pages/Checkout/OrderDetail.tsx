@@ -2,7 +2,6 @@ import SectionCardTitle from '@/components/misc/SectionCardTitle'
 import { useAppSelector } from '@/hooks/reduxHooks'
 import { CartSelector, CartItem } from '@/features/cart/cartSlice'
 import { ProductsSelector, ProductsType } from '@/features/products/productsSlice'
-import NavigateBackButton from '@/components/misc/NavigateBackButton'
 import OrderDetailCard from './OrderDetailCard'
 import findTotalAmount from '@/helpers/findTotalAmount'
 
@@ -24,24 +23,15 @@ const OrderDetail = () => {
   return (
     <section className="proper-border rounded-lg">
       <SectionCardTitle>Order Details</SectionCardTitle>
-      {cart.length > 0 ? (
-        <>
-          <section>
-            {lookupCart.map((cartItem, index) => (
-              <OrderDetailCard item={cartItem} key={index} />
-            ))}
-          </section>
-          <div className="flex w-full items-center justify-between px-2 py-4 font-bold fluid-text-lg">
-            <span>Grand total</span>
-            <span>${totalAmount.toFixed(2)}</span>
-          </div>
-        </>
-      ) : (
-        <div className="flex flex-col items-center gap-y-4 py-10 text-center">
-          <h2 className="font-bold fluid-text-xl"> There are no items in your cart </h2>
-          <NavigateBackButton>Go add some!</NavigateBackButton>
-        </div>
-      )}
+      <section>
+        {lookupCart.map((cartItem, index) => (
+          <OrderDetailCard item={cartItem} key={index} />
+        ))}
+      </section>
+      <div className="flex w-full items-center justify-between px-2 py-4 font-bold fluid-text-lg">
+        <span>Grand total</span>
+        <span>${totalAmount.toFixed(2)}</span>
+      </div>
     </section>
   )
 }
