@@ -122,12 +122,15 @@ const ParentForm = () => {
       return
     }
 
-    // Perform navigation logic here (e.g., redirect to another page)
     console.log('Form submitted successfully!')
     console.log('The form data is: ', formState)
+
     navigate('/thankyou', { replace: true })
 
-    // Clear the cart n successful submission.
+    // Set is submited back to false if user tries to submit in same session
+    setIsSubmitted(false)
+
+    // Clear the cart on successful submission.
     cartDispatch(clearCart())
   }, [isSubmitted, formState, cartDispatch, navigate])
 
