@@ -3,9 +3,11 @@ import BillingInfo from './BillingInfo'
 import BillingMethod from './BillingMethod'
 import PaymentMethod from './PaymentMethod'
 import Additional from './Additional'
+import Confirmation from './Confirmation'
 import type { MasterFormType, Action, BillingMethod as BillingMethodType } from './formsTypes'
 import { ActionType } from './enums'
-import Confirmation from './Confirmation'
+import { useAppDispatch } from '@/hooks/reduxHooks'
+import { clearCart } from '@/features/cart/cartSlice'
 import formReducer from '@/helpers/formReducer'
 import validateForm from '@/helpers/validateForm'
 import ModalContainer from '@/components/layouts/ModalContainer'
@@ -37,6 +39,8 @@ const ParentForm = () => {
     additionalInformation: '',
     confirmation: [false, false],
   }
+
+  const cartDispatch = useAppDispatch()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [errors, setErrors] = useState<string[]>([])
@@ -112,12 +116,17 @@ const ParentForm = () => {
   }
 
   useEffect(() => {
-    if (isSubmitted) {
-      // Perform navigation logic here (e.g., redirect to another page)
-      console.log('Form submitted successfully!')
-      console.log('The form data is: ', formState)
+    if (!isSubmitted) {
+      return
     }
-  }, [isSubmitted, formState])
+
+    // Perform navigation logic here (e.g., redirect to another page)
+    console.log('Form submitted successfully!')
+    console.log('The form data is: ', formState)
+
+    // Clear the cart n successful submission.
+    cartDispatch(clearCart())
+  }, [isSubmitted, formState, cartDispatch])
 
   return (
     <form className="flex flex-col gap-y-10" onSubmit={handleSubmit}>
