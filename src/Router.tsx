@@ -1,8 +1,9 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from '@/pages/Home'
 import Product from '@/pages/Product'
-import Cart from './pages/Cart'
+import Cart from '@/pages/Cart'
 import Checkout from '@/pages/Checkout'
+import ThankYou from '@/pages/ThankYou'
 
 const Router = () => {
   const location = useLocation()
@@ -13,6 +14,7 @@ const Router = () => {
       <Route path="/product/:id" element={<Product />} key="product" />
       <Route path="/cart" element={<Cart />} key="cart" />
       <Route path="/checkout" element={<Checkout />} key="checkout" />
+      <Route path="/thankyou" element={<ThankYou />} key="thankyou" />
     </Routes>
   )
 }

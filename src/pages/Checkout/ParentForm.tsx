@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import BillingInfo from './BillingInfo'
 import BillingMethod from './BillingMethod'
 import PaymentMethod from './PaymentMethod'
@@ -41,6 +42,7 @@ const ParentForm = () => {
   }
 
   const cartDispatch = useAppDispatch()
+  const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [errors, setErrors] = useState<string[]>([])
@@ -123,10 +125,11 @@ const ParentForm = () => {
     // Perform navigation logic here (e.g., redirect to another page)
     console.log('Form submitted successfully!')
     console.log('The form data is: ', formState)
+    navigate('/thankyou', { replace: true })
 
     // Clear the cart n successful submission.
     cartDispatch(clearCart())
-  }, [isSubmitted, formState, cartDispatch])
+  }, [isSubmitted, formState, cartDispatch, navigate])
 
   return (
     <form className="flex flex-col gap-y-10" onSubmit={handleSubmit}>
