@@ -15,13 +15,12 @@ const darkSlice = createSlice({
       const stateToStore = state ? 'light' : 'dark'
       localStorage.setItem(storageKey, stateToStore)
       return !state
-    },
-    setDarkMode: () => true,
+    }
   },
 })
 
 export default darkSlice.reducer
 
-export const { toggleDarkMode, setDarkMode } = darkSlice.actions
+export const { toggleDarkMode } = darkSlice.actions
 
 export const DarkSelector = (state: RootState) => state.dark
