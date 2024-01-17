@@ -4,6 +4,7 @@ import Product from '@/pages/Product'
 import Cart from '@/pages/Cart'
 import Checkout from '@/pages/Checkout'
 import ThankYou from '@/pages/ThankYou'
+import ProductsList from '@/pages/ProductsList'
 
 const Router = () => {
   const location = useLocation()
@@ -14,6 +15,7 @@ const Router = () => {
     { path: '/cart', element: <Cart />, key: 'cart' },
     { path: '/checkout', element: <Checkout />, key: 'checkout' },
     { path: '/thankyou', element: <ThankYou />, key: 'thankyou' },
+    { path: '/product', element: <ProductsList />, key: 'productList' },
   ]
 
   return (

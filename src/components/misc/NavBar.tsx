@@ -26,7 +26,7 @@ const NavBar: FC = () => {
     { to: '/', text: 'Home' },
     { to: '/about', text: 'About' },
     { to: '/service', text: 'Service' },
-    { to: '/products', text: 'Product' },
+    { to: '/product', text: 'Product' },
     { to: '/contact', text: 'Contact' },
   ]
 
