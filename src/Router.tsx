@@ -11,11 +11,11 @@ const Router = () => {
 
   const routes = [
     { path: '/', element: <Home />, key: 'Home' },
-    { path: '/product/:id', element: <Product />, key: 'product' },
+    { path: '/products/:id', element: <Product />, key: 'product' },
     { path: '/cart', element: <Cart />, key: 'cart' },
     { path: '/checkout', element: <Checkout />, key: 'checkout' },
     { path: '/thankyou', element: <ThankYou />, key: 'thankyou' },
-    { path: '/product', element: <ProductsList />, key: 'productList' },
+    { path: '/products', element: <ProductsList />, key: 'productList' },
   ]
 
   return (

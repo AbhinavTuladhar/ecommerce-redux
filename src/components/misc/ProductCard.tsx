@@ -20,7 +20,7 @@ const ProductCard: FC<CardProps> = ({ product }) => {
         <div className="flex flex-col gap-y-4">
           <div className="flex flex-col gap-y-2">
             <h3 className="font-bold fluid-text-lg">
-              <NavLink to={`/product/${id}`} className="fancy-link line-clamp-1">
+              <NavLink to={`/products/${id}`} className="fancy-link line-clamp-1">
                 {title}
               </NavLink>
             </h3>

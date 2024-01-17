@@ -25,8 +25,7 @@ const NavBar: FC = () => {
   const navItemsNew = [
     { to: '/', text: 'Home' },
     { to: '/about', text: 'About' },
-    { to: '/service', text: 'Service' },
-    { to: '/product', text: 'Product' },
+    { to: '/products', text: 'Products' },
     { to: '/contact', text: 'Contact' },
   ]
 
