@@ -9,6 +9,11 @@ const isNotEmpty = (obj: object): boolean => {
   return Object.values(obj).some((value) => value !== 0 && value !== '')
 }
 
+/**
+ * Validates the form in the checkout page
+ * @param form The object representing the data in the checkout form
+ * @returns A list of errors. If empty, there are no errors.
+ */
 const validateForm = (form: MasterFormType): string[] => {
   const errors: string[] = []
   const { billingInfo, paymentMethod } = form

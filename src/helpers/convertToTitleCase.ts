@@ -1,3 +1,8 @@
+/**
+ * Converts a sentence into title case - ie capitalise the first letter of each word.
+ * @param value The string to transform
+ * @returns The string in title case.
+ */
 const convertToTitleCase = (value: string): string => {
   // Split into separate words
   const words = value.split(' ')

@@ -1,7 +1,7 @@
 /**
  * Converts a star rating into the number of whole and partial stars.
  * @param rating The star rating value
- * @returns
+ * @returns The number of whole, half and empty stars to render.
  */
 const starCount = (rating: number) => {
   const wholePart = Math.floor(rating)
