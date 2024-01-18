@@ -7,6 +7,7 @@ import ThankYou from '@/pages/ThankYou'
 import ProductsList from '@/pages/ProductsList'
 import NotFound from '@/pages/NotFound'
 import About from '@/pages/About'
+import Contact from '@/pages/Contact'
 
 const Router = () => {
   const location = useLocation()
@@ -19,6 +20,7 @@ const Router = () => {
     { path: '/thankyou', element: <ThankYou />, key: 'thankyou' },
     { path: '/products', element: <ProductsList />, key: 'productList' },
     { path: '/about', element: <About />, key: 'about' },
+    { path: '/contact', element: <Contact />, key: 'contact' },
     { path: '*', element: <NotFound />, key: 'test' },
   ]
 
