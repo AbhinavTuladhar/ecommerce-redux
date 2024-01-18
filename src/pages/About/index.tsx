@@ -10,9 +10,12 @@ interface ContainerProps {
 }
 
 const ImageContainer: FC<ContainerProps> = ({ image, caption }) => (
-  <section className="proper-border mx-auto w-52 justify-self-center rounded-lg md:w-fit">
+  <section className="proper-border group relative mx-auto w-52 justify-self-center overflow-hidden rounded-lg duration-500 hover:cursor-pointer md:w-fit">
     <img src={image} alt={caption} className="w-full" />
-    <p className="my-4 w-full text-center font-bold">{convertToTitleCase(caption)}</p>
+    <p className="absolute -bottom-11 left-0 hidden w-full pb-4 pt-16 text-center font-bold text-white opacity-0 duration-500 ease-in-out fluid-text-xl group-hover:bottom-0 group-hover:bg-gradient-to-b group-hover:from-black/0 group-hover:to-black/60 group-hover:opacity-100 lg:block lg:pt-24">
+      {convertToTitleCase(caption)}
+    </p>
+    <p className="my-2 block text-center font-bold fluid-text-lg lg:hidden">{convertToTitleCase(caption)}</p>
   </section>
 )
 
