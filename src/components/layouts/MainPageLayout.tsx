@@ -5,7 +5,7 @@ interface PageProps {
 }
 
 const MainPageLayout: FC<PageProps> = ({ children }) => {
-  return <div className="grid grid-cols-1 items-start gap-x-4 gap-y-8 py-10 md:grid-cols-cart-grid">{children}</div>
+  return <div className="md:grid-cols-main-grid grid grid-cols-1 items-start gap-x-4 gap-y-8 py-10">{children}</div>
 }
 
 export default MainPageLayout
