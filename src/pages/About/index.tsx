@@ -1,13 +1,40 @@
+import { FC, Fragment } from 'react'
 import PageLayout from '@/components/layouts/PageLayout'
-import MainPageLayout from '@/components/layouts/MainPageLayout'
 import PageTitle from '@/components/misc/PageTitle'
-import MensClothes from '@/assets/mens_clothing.jpg'
+import useCategories from '@/hooks/useCategories'
+import convertToTitleCase from '@/helpers/convertToTitleCase'
+
+interface ContainerProps {
+  image: string
+  caption: string
+}
+
+const ImageContainer: FC<ContainerProps> = ({ image, caption }) => (
+  <section className="proper-border mx-auto w-52 justify-self-center rounded-lg md:w-fit">
+    <img src={image} alt={caption} className="w-full" />
+    <p className="my-4 w-full text-center font-bold">{convertToTitleCase(caption)}</p>
+  </section>
+)
 
 const Index = () => {
+  const { data, error, loading } = useCategories()
+
+  const imageList = [
+    'https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg',
+    'https://images.pexels.com/photos/1927259/pexels-photo-1927259.jpeg',
+    'https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg',
+    'https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg',
+  ]
+
+  const imageContainerData = Array.from({ length: imageList.length }, (_, index) => ({
+    image: imageList[index] || '',
+    caption: data[index] || '',
+  }))
+
   return (
     <PageLayout>
       <PageTitle>About Us</PageTitle>
-      <MainPageLayout>
+      <main className="grid grid-cols-1 gap-8 py-10 md:grid-cols-[3fr,_1fr]">
         <div className="space-y-8 text-justify">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ipsum possimus exercitationem
@@ -38,9 +65,16 @@ const Index = () => {
           </p>
         </div>
         <div className="flex flex-col gap-y-4">
-          <img src={MensClothes} alt="guy in a suit" />
+          <h2 className="font-bold fluid-text-xl"> Our categories </h2>
+          {error && <span> Error fetching categories</span>}
+          {loading && <span> Loading categories... </span>}
+          {imageContainerData.map((item, index) => (
+            <Fragment key={index}>
+              <ImageContainer image={item.image} caption={item.caption} />
+            </Fragment>
+          ))}
         </div>
-      </MainPageLayout>
+      </main>
     </PageLayout>
   )
 }
