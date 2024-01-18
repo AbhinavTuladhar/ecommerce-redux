@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { NavLink } from 'react-router-dom'
 
 interface ColumnProps {
   title: string
@@ -10,7 +11,9 @@ const FooterColumn: FC<ColumnProps> = ({ title, links }) => (
     <h2 className="font-medium uppercase fluid-text-2xl"> {title}</h2>
     <ul className="flex flex-col gap-y-1">
       {links.map((link, index) => (
-        <li key={index}>{link}</li>
+        <li key={index}>
+          <NavLink to={`/${link.split(' ').join('')}`}>{link}</NavLink>
+        </li>
       ))}
     </ul>
   </div>
