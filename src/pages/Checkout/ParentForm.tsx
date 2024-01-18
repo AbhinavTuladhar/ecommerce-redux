@@ -7,8 +7,8 @@ import Additional from './Additional'
 import Confirmation from './Confirmation'
 import type { MasterFormType, Action, BillingMethod as BillingMethodType } from './formsTypes'
 import { ActionType } from './enums'
-import { useAppDispatch } from '@/hooks/reduxHooks'
-import { clearCart } from '@/features/cart/cartSlice'
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
+import { clearCart, CartSelector } from '@/features/cart/cartSlice'
 import formReducer from '@/helpers/formReducer'
 import validateForm from '@/helpers/validateForm'
 import ModalContainer from '@/components/layouts/ModalContainer'
@@ -41,6 +41,7 @@ const ParentForm = () => {
     confirmation: [false, false],
   }
 
+  const cart = useAppSelector(CartSelector)
   const cartDispatch = useAppDispatch()
   const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -122,8 +123,13 @@ const ParentForm = () => {
       return
     }
 
+    const dataToSend = {
+      ...formState,
+      cart,
+    }
+
     console.log('Form submitted successfully!')
-    console.log('The form data is: ', formState)
+    console.log('The data sent is: ', dataToSend)
 
     navigate('/thankyou', { replace: true })
 
@@ -132,7 +138,7 @@ const ParentForm = () => {
 
     // Clear the cart on successful submission.
     cartDispatch(clearCart())
-  }, [isSubmitted, formState, cartDispatch, navigate])
+  }, [isSubmitted, formState, cartDispatch, navigate, cart])
 
   return (
     <form className="flex flex-col gap-y-10" onSubmit={handleSubmit}>
