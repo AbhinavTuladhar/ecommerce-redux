@@ -1,4 +1,5 @@
 import HeroImage from '@/assets/ecommerce marketing.jpg'
+import { NavLink } from 'react-router-dom'
 
 const Hero = () => {
   return (
@@ -12,9 +13,11 @@ const Hero = () => {
             Discover elegance, innovation, and style: unveiling exquisite jewelry, cutting-edge electronics, and fashion
             forward clothing for your unique lifestyle.
           </p>
-          <button className="self-center rounded-md bg-white px-4 py-3 font-semibold uppercase text-darkmode-green fluid-text-2xl md:self-start">
-            Learn more
-          </button>
+          <NavLink to="/about" className="self-center md:self-start">
+            <button className="md rounded-md bg-white px-4 py-3 font-semibold uppercase text-darkmode-green fluid-text-2xl">
+              Learn more
+            </button>
+          </NavLink>
         </div>
         <img src={HeroImage} alt="computers" />
       </div>

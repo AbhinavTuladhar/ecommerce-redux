@@ -1,6 +1,7 @@
 import Clothes from '@/assets/clothes.jpg'
 import Electronics from '@/assets/electronics.jpg'
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const FeatureCardFirst = () => (
   <article className="flex h-full flex-col items-center justify-between gap-y-7 rounded-xl bg-[#c8a938] px-4 py-4 text-black lg:flex-col lg:justify-center lg:py-12">
@@ -24,9 +25,11 @@ const FeatureCardSecond = () => (
         <h2 className="uppercase fluid-text-xl"> Latest tech </h2>
         <h2 className="uppercase fluid-text-2xl"> Super sale </h2>
       </div>
-      <button className="self-center rounded-md bg-black p-3 font-semibold uppercase duration-500 fluid-text-lg hover:cursor-pointer hover:bg-slate-800 active:scale-95">
-        Shop now
-      </button>
+      <NavLink to="/products" className="self-center">
+        <button className="rounded-md bg-black p-3 font-semibold uppercase duration-500 fluid-text-lg hover:cursor-pointer hover:bg-slate-800 active:scale-95">
+          Shop now
+        </button>
+      </NavLink>
     </div>
   </article>
 )

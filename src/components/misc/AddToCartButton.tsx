@@ -33,7 +33,7 @@ const AddToCartButton: FC<Props> = ({ id }) => {
       >
         Add to cart
       </button>
-      <ToastContainer theme={`${darkModeEnabled ? 'dark' : 'light'}`} autoClose={1250} />
+      <ToastContainer theme={`${darkModeEnabled ? 'dark' : 'colored'}`} autoClose={1250} />
     </div>
   )
 }

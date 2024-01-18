@@ -91,7 +91,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <button className="justify-self-start rounded-lg bg-darkmode-green px-4 py-2 duration-500 hover:brightness-125">
+        <button className="justify-self-start rounded-lg bg-lightmode-green px-4 py-2 text-white duration-500 hover:brightness-125 dark:bg-darkmode-green">
           Submit
         </button>
       </form>
