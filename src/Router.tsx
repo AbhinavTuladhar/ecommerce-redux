@@ -6,6 +6,7 @@ import Checkout from '@/pages/Checkout'
 import ThankYou from '@/pages/ThankYou'
 import ProductsList from '@/pages/ProductsList'
 import NotFound from '@/pages/NotFound'
+import About from '@/pages/About'
 
 const Router = () => {
   const location = useLocation()
@@ -17,6 +18,7 @@ const Router = () => {
     { path: '/checkout', element: <Checkout />, key: 'checkout' },
     { path: '/thankyou', element: <ThankYou />, key: 'thankyou' },
     { path: '/products', element: <ProductsList />, key: 'productList' },
+    { path: '/about', element: <About />, key: 'about' },
     { path: '*', element: <NotFound />, key: 'test' },
   ]
 
