@@ -10,7 +10,7 @@ interface RowProps {
 
 const ConfirmationRow: FC<RowProps> = ({ children, checked, handleInputChange, index }) => {
   return (
-    <div className="rounded-xl border border-gray-300 bg-gray-100 p-2 text-black outline-1 outline-offset-0 dark:bg-gray-900 dark:text-white">
+    <div className="proper-border rounded-xl bg-gray-100 p-2 text-black outline-1 outline-offset-0 dark:bg-gray-900 dark:text-white">
       <div className="flex flex-row items-start gap-x-2">
         <input type="checkbox" className="w-h-6 h-6" checked={checked} onChange={() => handleInputChange(index)} />
         {children}

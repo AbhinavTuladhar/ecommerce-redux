@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <div className={`${darkModeEnabled ? 'dark' : ''}`}>
-      <div className="grid min-h-[100dvh] grid-rows-page-layout bg-white text-slate-800 duration-500 dark:bg-slate-900 dark:text-white">
+      <div className="grid min-h-[100dvh] grid-rows-page-layout bg-white text-slate-800 duration-500 ease-out dark:bg-slate-900 dark:text-white">
         <NavBar />
         <Router />
         <Footer />

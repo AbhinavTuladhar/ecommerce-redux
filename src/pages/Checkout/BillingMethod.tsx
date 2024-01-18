@@ -14,11 +14,11 @@ interface RowProps {
 const BillingMethodRow: FC<RowProps> = ({ method, image, value, handleInputChange, formData }) => {
   return (
     <div className="proper-border flex flex-col flex-wrap items-center justify-between gap-y-2 rounded-lg bg-gray-100 p-2 dark:bg-gray-900 sm:flex-row">
-      <div className="flex w-10 flex-row items-center gap-x-1 sm:gap-x-4">
+      <div className="flex w-20 flex-row items-center gap-x-1 sm:gap-x-4">
         <input
           type="radio"
           name="method"
-          className="h-4 w-4"
+          className="h-4 w-4 justify-self-stretch"
           value={value}
           checked={formData.billingMethod === value}
           onChange={handleInputChange}
