@@ -2,21 +2,6 @@ import Clothes from '@/assets/clothes.jpg'
 import Electronics from '@/assets/electronics.jpg'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { motion, Variants } from 'framer-motion'
-
-const fadeInVariant: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      staggerChildren: 0.4,
-      ease: 'easeOut',
-    },
-  },
-}
 
 const FeatureCardFirst = () => (
   <article className="flex h-full flex-col items-center justify-between gap-y-7 rounded-xl bg-[#c8a938] px-4 py-4 text-black lg:flex-col lg:justify-center lg:py-12">
@@ -93,31 +78,18 @@ const FeatureCardThird = () => {
 const FeaturedProducts: React.FC = () => {
   return (
     <div className="mx-auto flex w-container max-w-full flex-col gap-8 py-8">
-      <motion.h2
-        variants={fadeInVariant}
-        initial="hidden"
-        animate="show"
-        className="font-semibold uppercase fluid-text-3xl"
-      >
-        Featured products
-      </motion.h2>
-      <motion.div
-        variants={fadeInVariant}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.5 }}
-        className="mx-auto grid max-w-full grid-cols-1 gap-9 sm:w-[32rem] lg:w-full lg:grid-flow-col lg:grid-cols-featured-grid lg:grid-rows-2"
-      >
-        <motion.div variants={fadeInVariant} className="row-span-1 lg:row-span-2">
+      <h2 className="font-semibold uppercase fluid-text-3xl">Featured products</h2>
+      <div className="mx-auto grid max-w-full grid-cols-1 gap-9 sm:w-[32rem] lg:w-full lg:grid-flow-col lg:grid-cols-featured-grid lg:grid-rows-2">
+        <div className="row-span-1 lg:row-span-2">
           <FeatureCardFirst />
-        </motion.div>
-        <motion.div variants={fadeInVariant} className="row-span-1">
+        </div>
+        <div className="row-span-1">
           <FeatureCardSecond />
-        </motion.div>
-        <motion.div variants={fadeInVariant} className="row-span-1">
+        </div>
+        <div className="row-span-1">
           <FeatureCardThird />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   )
 }
