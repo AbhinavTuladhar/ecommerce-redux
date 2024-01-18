@@ -1,26 +1,11 @@
-import { FC, Fragment } from 'react'
+import { Fragment } from 'react'
 import PageLayout from '@/components/layouts/PageLayout'
 import PageTitle from '@/components/misc/PageTitle'
 import useCategories from '@/hooks/useCategories'
-import convertToTitleCase from '@/helpers/convertToTitleCase'
-
-interface ContainerProps {
-  image: string
-  caption: string
-}
-
-const ImageContainer: FC<ContainerProps> = ({ image, caption }) => (
-  <section className="proper-border group relative mx-auto w-52 justify-self-center overflow-hidden rounded-lg duration-500 hover:cursor-pointer md:w-fit">
-    <img src={image} alt={caption} className="w-full" />
-    <p className="absolute -bottom-11 left-0 hidden w-full pb-4 pt-16 text-center font-bold text-white opacity-0 duration-500 ease-in-out fluid-text-xl group-hover:bottom-0 group-hover:bg-gradient-to-b group-hover:from-black/0 group-hover:to-black/60 group-hover:opacity-100 lg:block lg:pt-24">
-      {convertToTitleCase(caption)}
-    </p>
-    <p className="my-2 block text-center font-bold fluid-text-lg lg:hidden">{convertToTitleCase(caption)}</p>
-  </section>
-)
+import ImageContainer from './ImageContainer'
 
 const Index = () => {
-  const { data, error, loading } = useCategories()
+  const { data: categoryData, error, loading } = useCategories()
 
   const imageList = [
     'https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg',
@@ -29,9 +14,10 @@ const Index = () => {
     'https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg',
   ]
 
+  // Pair-up the categories with their respective images.
   const imageContainerData = Array.from({ length: imageList.length }, (_, index) => ({
     image: imageList[index] || '',
-    caption: data[index] || '',
+    caption: categoryData[index] || '',
   }))
 
   return (
@@ -71,11 +57,12 @@ const Index = () => {
           <h2 className="font-bold fluid-text-xl"> Our categories </h2>
           {error && <span> Error fetching categories</span>}
           {loading && <span> Loading categories... </span>}
-          {imageContainerData.map((item, index) => (
-            <Fragment key={index}>
-              <ImageContainer image={item.image} caption={item.caption} />
-            </Fragment>
-          ))}
+          {categoryData.length > 0 &&
+            imageContainerData.map((item, index) => (
+              <Fragment key={index}>
+                <ImageContainer image={item.image} caption={item.caption} />
+              </Fragment>
+            ))}
         </div>
       </main>
     </PageLayout>
