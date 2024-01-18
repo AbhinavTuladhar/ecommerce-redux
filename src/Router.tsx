@@ -8,6 +8,7 @@ import ProductsList from '@/pages/ProductsList'
 import NotFound from '@/pages/NotFound'
 import About from '@/pages/About'
 import Contact from '@/pages/Contact'
+import { AnimatePresence } from 'framer-motion'
 
 const Router = () => {
   const location = useLocation()
@@ -25,11 +26,13 @@ const Router = () => {
   ]
 
   return (
-    <Routes location={location} key={location.pathname}>
-      {routes.map((route) => (
-        <Route path={route.path} element={route.element} key={route.key} />
-      ))}
-    </Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {routes.map((route) => (
+          <Route path={route.path} element={route.element} key={route.key} />
+        ))}
+      </Routes>
+    </AnimatePresence>
   )
 }
 
