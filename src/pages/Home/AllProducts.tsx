@@ -20,10 +20,10 @@ const AllProducts = () => {
   }
 
   return (
-    <div className="mx-auto flex w-container flex-col gap-y-8 pb-8">
+    <section className="mx-auto flex w-container flex-col gap-y-8 pb-8">
       <h2 className="font-semibold uppercase fluid-text-3xl"> Newest Products! </h2>
       <ProductGrid productsState={productState} />
-    </div>
+    </section>
   )
 }
 

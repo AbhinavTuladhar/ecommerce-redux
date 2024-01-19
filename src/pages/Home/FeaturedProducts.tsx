@@ -92,11 +92,12 @@ const FeatureCardThird = () => {
 
 const FeaturedProducts: React.FC = () => {
   return (
-    <div className="mx-auto flex min-h-dvh w-container max-w-full flex-col justify-center gap-8 py-8">
+    <section className="mx-auto flex min-h-dvh w-container max-w-full flex-col justify-center gap-8 py-8">
       <motion.h2
         variants={fadeInVariant}
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: true, amount: 1 }}
         className="font-semibold uppercase fluid-text-3xl"
       >
         Featured products
@@ -105,7 +106,7 @@ const FeaturedProducts: React.FC = () => {
         variants={fadeInVariant}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.1 }}
         className="mx-auto grid max-w-full grid-cols-1 gap-9 sm:w-[32rem] lg:w-full lg:grid-flow-col lg:grid-cols-featured-grid lg:grid-rows-2"
       >
         <motion.div
@@ -122,7 +123,7 @@ const FeaturedProducts: React.FC = () => {
           <FeatureCardThird />
         </motion.div>
       </motion.div>
-    </div>
+    </section>
   )
 }
 

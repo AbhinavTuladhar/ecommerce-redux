@@ -6,6 +6,7 @@ import PageTitle from '@/components/misc/PageTitle'
 import useCategories from '@/hooks/useCategories'
 import convertToTitleCase from '@/helpers/convertToTitleCase'
 import type { ProductsType } from '@/features/products/productsSlice'
+import FadeInContainer from '@/components/layouts/FadeInContainer'
 
 const Index = () => {
   const productsResponse = useProducts()
@@ -52,19 +53,21 @@ const Index = () => {
 
   // The data is considered loading if the length of array is more than 1 - since 'All' is always in the array
   return (
-    <PageLayout>
-      <PageTitle> Our Products </PageTitle>
-      <main className="space-y-4 py-10">
-        {error && <span> Error fetching categories. </span>}
-        {loading && <span> Loading categories data.... </span>}
-        {categoryList.length > 1 && (
-          <>
-            <ul className="flex w-full flex-row flex-wrap justify-center gap-y-4">{tabs}</ul>
-            <ProductGrid productsState={gridProps} />
-          </>
-        )}
-      </main>
-    </PageLayout>
+    <FadeInContainer>
+      <PageLayout>
+        <PageTitle> Our Products </PageTitle>
+        <main className="space-y-4 py-10">
+          {error && <span> Error fetching categories. </span>}
+          {loading && <span> Loading categories data.... </span>}
+          {categoryList.length > 1 && (
+            <>
+              <ul className="flex w-full flex-row flex-wrap justify-center gap-y-4">{tabs}</ul>
+              <ProductGrid productsState={gridProps} />
+            </>
+          )}
+        </main>
+      </PageLayout>
+    </FadeInContainer>
   )
 }
 
