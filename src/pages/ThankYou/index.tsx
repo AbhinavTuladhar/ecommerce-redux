@@ -1,8 +1,14 @@
 import PageLayout from '@/components/layouts/PageLayout'
 import NavigateBackButton from '@/components/misc/NavigateBackButton'
 import FadeInContainer from '@/components/layouts/FadeInContainer'
+import { clearCart } from '@/features/cart/cartSlice'
+import { useAppDispatch } from '@/hooks/reduxHooks'
 
 const Index = () => {
+  // Clear the cart i the user visits the page.
+  const cartDispatch = useAppDispatch()
+  cartDispatch(clearCart())
+
   return (
     <FadeInContainer>
       <PageLayout>

@@ -7,8 +7,8 @@ import Additional from './Additional'
 import Confirmation from './Confirmation'
 import type { MasterFormType, Action, BillingMethod as BillingMethodType } from './formsTypes'
 import { ActionType } from './enums'
-import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
-import { clearCart, CartSelector } from '@/features/cart/cartSlice'
+import { useAppSelector } from '@/hooks/reduxHooks'
+import { CartSelector } from '@/features/cart/cartSlice'
 import formReducer from '@/helpers/formReducer'
 import validateForm from '@/helpers/validateForm'
 import ModalContainer from '@/components/layouts/ModalContainer'
@@ -42,7 +42,6 @@ const ParentForm = () => {
   }
 
   const cart = useAppSelector(CartSelector)
-  const cartDispatch = useAppDispatch()
   const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -135,10 +134,7 @@ const ParentForm = () => {
 
     // Set is submited back to false if user tries to submit in same session
     setIsSubmitted(false)
-
-    // Clear the cart on successful submission.
-    cartDispatch(clearCart())
-  }, [isSubmitted, formState, cartDispatch, navigate, cart])
+  }, [isSubmitted, formState, navigate, cart])
 
   return (
     <form className="flex flex-col gap-y-10" onSubmit={handleSubmit}>
