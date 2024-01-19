@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 import ProductGrid from '@/components/misc/ProductGrid'
 import useProducts from '@/hooks/useProducts'
 
@@ -21,7 +23,14 @@ const AllProducts = () => {
 
   return (
     <section className="mx-auto flex w-container flex-col gap-y-8 py-8">
-      <h2 className="font-semibold uppercase fluid-text-3xl"> Random Products! </h2>
+      <motion.h2
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 1, margin: '-10px' }}
+        className="font-semibold uppercase fluid-text-3xl"
+      >
+        Random Products!
+      </motion.h2>
       <ProductGrid productsState={newState} />
     </section>
   )

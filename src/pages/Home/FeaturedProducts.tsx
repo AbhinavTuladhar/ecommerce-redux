@@ -4,6 +4,7 @@ import { motion, Variants } from 'framer-motion'
 
 import Clothes from '@/assets/clothes.jpg'
 import Electronics from '@/assets/electronics.jpg'
+import Jewellery from '@/assets/jewellery.jpg'
 
 const fadeInVariant: Variants = {
   hidden: {
@@ -34,11 +35,11 @@ const FeatureCardFirst = () => (
 const FeatureCardSecond = () => (
   <article className="flex h-full w-full flex-col items-center justify-between rounded-xl bg-[#fb8787] px-4 py-4 text-white sm:flex-row lg:flex-row lg:py-0">
     <div>
-      <img src={Electronics} className="w-full max-w-64" alt="some electronics" />
+      <img src={Jewellery} className="w-full max-w-64" alt="some jewllery" />
     </div>
     <div className="flex flex-col justify-center gap-y-7">
       <div className="flex flex-col gap-y-2">
-        <h2 className="uppercase fluid-text-xl"> Latest tech </h2>
+        <h2 className="uppercase fluid-text-xl"> Latest designs </h2>
         <h2 className="uppercase fluid-text-2xl"> Super sale </h2>
       </div>
       <NavLink to="/products" className="self-center">
