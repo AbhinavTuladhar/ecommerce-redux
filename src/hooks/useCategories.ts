@@ -1,29 +1,21 @@
-import { useState, useEffect } from 'react'
-import { CategoriesAPI } from '@/services/categoriesAPI'
+import { useEffect, useState } from 'react'
+import { useAppSelector } from '@/hooks/reduxHooks'
+import { CategoriesSelector } from '@/features/categories/categoriesSlice'
 
 const useCategories = () => {
-  const [data, setData] = useState<string[]>([])
-  const [error, setError] = useState<string | undefined>(undefined)
+  const fetchedCategories = useAppSelector(CategoriesSelector)
+
+  const [categories, setCategories] = useState<Array<string>>([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | undefined>(undefined)
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true)
-        const response = await CategoriesAPI.getCategories()
-        setData(response)
-        setError(undefined)
-      } catch (error) {
-        setError('Failed to fetch categories.')
-      } finally {
-        setLoading(false)
-      }
-    }
+    setLoading(fetchedCategories.loading)
+    setCategories(fetchedCategories.categories)
+    setError(fetchedCategories.error)
+  }, [fetchedCategories])
 
-    fetchData()
-  }, [])
-
-  return { data, error, loading }
+  return { categories, loading, error }
 }
 
 export default useCategories

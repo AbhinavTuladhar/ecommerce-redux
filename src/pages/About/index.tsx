@@ -6,7 +6,9 @@ import ImageContainer from './ImageContainer'
 import FadeInContainer from '@/components/layouts/FadeInContainer'
 
 const Index = () => {
-  const { data: categoryData, error, loading } = useCategories()
+  const { categories, error, loading } = useCategories()
+
+  console.log(categories)
 
   const imageList = [
     'https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg',
@@ -18,7 +20,7 @@ const Index = () => {
   // Pair-up the categories with their respective images.
   const imageContainerData = Array.from({ length: imageList.length }, (_, index) => ({
     image: imageList[index] || '',
-    caption: categoryData[index] || '',
+    caption: categories[index] || '',
   }))
 
   return (
@@ -59,7 +61,7 @@ const Index = () => {
             <h2 className="font-bold fluid-text-xl"> Our categories </h2>
             {error && <span> Error fetching categories</span>}
             {loading && <span> Loading categories... </span>}
-            {categoryData.length > 0 &&
+            {categories.length > 0 &&
               imageContainerData.map((item, index) => (
                 <Fragment key={index}>
                   <ImageContainer image={item.image} caption={item.caption} />

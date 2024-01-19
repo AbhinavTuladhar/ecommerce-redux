@@ -11,7 +11,7 @@ import FadeInContainer from '@/components/layouts/FadeInContainer'
 const Index = () => {
   const productsResponse = useProducts()
   const { products: allProducts } = productsResponse
-  const { data, error, loading } = useCategories()
+  const { categories, error, loading } = useCategories()
 
   const [currentProducts, setCurrentProducts] = useState<ProductsType[]>([])
 
@@ -19,7 +19,7 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState<string>('All')
 
   // Append an 'all' option to the categories array
-  const categoryList = ['All', ...data]
+  const categoryList = ['All', ...categories]
 
   const handleClick = (categoryName: string) => {
     setActiveTab(categoryName)

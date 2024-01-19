@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { fetchProducts, ProductsSelector } from '@/features/products/productsSlice'
+import { fetchCategories, CategoriesSelector } from './features/categories/categoriesSlice'
 import { DarkSelector } from '@/features/dark/darkSlice'
 import NavBar from '@/components/misc/NavBar'
 import Footer from './components/misc/Footer'
@@ -9,6 +10,7 @@ import ScrollToTop from '@/components/misc/ScrollToTop'
 
 const App = () => {
   const products = useAppSelector(ProductsSelector)
+  const categories = useAppSelector(CategoriesSelector)
   const darkModeEnabled = useAppSelector(DarkSelector)
   const dispatch = useAppDispatch()
 
@@ -17,6 +19,12 @@ const App = () => {
       dispatch(fetchProducts())
     }
   }, [dispatch, products.products.length])
+
+  useEffect(() => {
+    if (categories.categories.length === 0) {
+      dispatch(fetchCategories())
+    }
+  }, [dispatch, categories.categories.length])
 
   return (
     <div className={`${darkModeEnabled ? 'dark' : ''}`}>
