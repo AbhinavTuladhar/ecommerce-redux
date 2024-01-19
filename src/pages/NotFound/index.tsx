@@ -3,8 +3,8 @@ import FadeInContainer from '@/components/layouts/FadeInContainer'
 
 const Index = () => {
   return (
-    <PageLayout>
-      <FadeInContainer>
+    <FadeInContainer className="flex flex-col">
+      <PageLayout>
         <div className="flex flex-1 flex-col items-center justify-center gap-y-4">
           <h1 className="font-bold fluid-text-3xl"> 404 </h1>
           <div className="space-y-2 text-center">
@@ -13,8 +13,8 @@ const Index = () => {
           </div>
           <p> It appears the page you seek doesn't exist. </p>
         </div>
-      </FadeInContainer>
-    </PageLayout>
+      </PageLayout>
+    </FadeInContainer>
   )
 }
 

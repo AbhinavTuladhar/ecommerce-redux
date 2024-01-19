@@ -10,7 +10,7 @@ const Index = () => {
   cartDispatch(clearCart())
 
   return (
-    <FadeInContainer>
+    <FadeInContainer className="flex flex-col">
       <PageLayout>
         <div className="flex flex-1 flex-col items-center justify-center gap-y-6 py-20 text-center">
           <h2 className="font-bold fluid-text-4xl">Thank you for shopping with us!</h2>
