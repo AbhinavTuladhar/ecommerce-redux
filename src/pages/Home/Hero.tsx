@@ -24,7 +24,7 @@ const Hero = () => {
 
   return (
     <section className="flex min-h-96 items-center overflow-hidden bg-lightmode-green text-white dark:bg-darkmode-green">
-      <div className="mx-auto grid min-h-full w-container grid-cols-1 place-content-center place-items-center content-center gap-x-20 gap-y-10 py-4 md:grid-cols-hero">
+      <div className="mx-auto grid min-h-full w-container grid-cols-1 place-content-center place-items-center content-center gap-x-20 gap-y-10 py-2 md:grid-cols-hero md:py-6 lg:py-10">
         <motion.div
           variants={motionVariant}
           initial="hidden"

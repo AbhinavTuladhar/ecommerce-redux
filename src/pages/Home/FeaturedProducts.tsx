@@ -105,16 +105,20 @@ const FeaturedProducts: React.FC = () => {
         variants={fadeInVariant}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true }}
         className="mx-auto grid max-w-full grid-cols-1 gap-9 sm:w-[32rem] lg:w-full lg:grid-flow-col lg:grid-cols-featured-grid lg:grid-rows-2"
       >
-        <motion.div variants={fadeInVariant} className="row-span-1 lg:row-span-2">
+        <motion.div
+          variants={fadeInVariant}
+          viewport={{ once: true, amount: 0.1 }}
+          className="row-span-1 lg:row-span-2"
+        >
           <FeatureCardFirst />
         </motion.div>
-        <motion.div variants={fadeInVariant} className="row-span-1">
+        <motion.div variants={fadeInVariant} viewport={{ once: true, amount: 0.1 }} className="row-span-1">
           <FeatureCardSecond />
         </motion.div>
-        <motion.div variants={fadeInVariant} className="row-span-1">
+        <motion.div variants={fadeInVariant} viewport={{ once: true, amount: 0.1 }} className="row-span-1">
           <FeatureCardThird />
         </motion.div>
       </motion.div>
