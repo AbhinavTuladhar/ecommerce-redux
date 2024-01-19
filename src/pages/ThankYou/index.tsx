@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import FadeInContainer from '@/components/layouts/FadeInContainer'
 import PageLayout from '@/components/layouts/PageLayout'
 import NavigateBackButton from '@/components/misc/NavigateBackButton'
@@ -5,9 +7,14 @@ import { clearCart } from '@/features/cart/cartSlice'
 import { useAppDispatch } from '@/hooks/reduxHooks'
 
 const Index = () => {
-  // Clear the cart i the user visits the page.
   const cartDispatch = useAppDispatch()
-  cartDispatch(clearCart())
+
+  // Clear the cart i the user visits the page.
+  // Wrapped in useEffect because of the following warning:
+  // Cannot update a component (`NavBar`) while rendering a different component (`Index`).
+  useEffect(() => {
+    cartDispatch(clearCart())
+  }, [cartDispatch])
 
   return (
     <FadeInContainer className="flex flex-col">
