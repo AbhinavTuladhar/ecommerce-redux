@@ -92,7 +92,7 @@ const FeatureCardThird = () => {
 
 const FeaturedProducts: React.FC = () => {
   return (
-    <div className="mx-auto flex w-container max-w-full flex-col gap-8 py-8">
+    <div className="mx-auto flex min-h-dvh w-container max-w-full flex-col justify-center gap-8 py-8">
       <motion.h2
         variants={fadeInVariant}
         initial="hidden"
