@@ -16,7 +16,7 @@ const darkSlice = createSlice({
       const stateToStore = state ? 'light' : 'dark'
       localStorage.setItem(storageKey, stateToStore)
       return !state
-    }
+    },
   },
 })
 

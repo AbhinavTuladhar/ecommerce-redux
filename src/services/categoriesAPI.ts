@@ -1,4 +1,4 @@
-import BASE_URL from "./base";
+import BASE_URL from './base'
 
 export const CategoriesAPI = {
   getCategories: async () => {
@@ -13,8 +13,8 @@ export const CategoriesAPI = {
       const data: string[] = await response.json()
       return data
     } catch (error) {
-      console.error("Error when getting category information.")
+      console.error('Error when getting category information.')
       throw error
     }
-  }
+  },
 }

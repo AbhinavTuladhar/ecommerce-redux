@@ -9,7 +9,7 @@ export const store = configureStore({
     products: ProductsReducer,
     cart: CartReducer,
     dark: DarkReducer,
-    categories: CategoriesReducer
+    categories: CategoriesReducer,
   },
 })
 

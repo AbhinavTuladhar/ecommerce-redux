@@ -26,19 +26,19 @@ const formReducer = (state: MasterFormType, action: Action): MasterFormType => {
         ...state.paymentMethod,
         ...(payload.creditCard
           ? {
-            creditCard: {
-              ...state.paymentMethod.creditCard,
-              ...payload.creditCard,
-            },
-          }
+              creditCard: {
+                ...state.paymentMethod.creditCard,
+                ...payload.creditCard,
+              },
+            }
           : {}), // Only spread creditCard if it's present in the payload
         ...(payload.paypal
           ? {
-            paypal: {
-              ...state.paymentMethod.paypal,
-              ...payload.paypal,
-            },
-          }
+              paypal: {
+                ...state.paymentMethod.paypal,
+                ...payload.paypal,
+              },
+            }
           : {}), // Only spread paypal if it's present in the payload
       }
 

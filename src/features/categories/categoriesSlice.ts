@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
-import { RootState } from "@/store";
-import { CategoriesAPI } from "@/services/categoriesAPI";
+import { RootState } from '@/store'
+import { CategoriesAPI } from '@/services/categoriesAPI'
 
 export interface CategoriesState {
-  loading: boolean,
+  loading: boolean
   categories: Array<string>
   error: string | undefined
 }
@@ -17,7 +17,7 @@ export const fetchCategories = createAsyncThunk('categories/fetchCategories', as
 const initialState: CategoriesState = {
   loading: false,
   categories: [],
-  error: undefined
+  error: undefined,
 }
 
 const categoriesSlice = createSlice({
@@ -37,7 +37,7 @@ const categoriesSlice = createSlice({
       state.categories = action.payload
     })
   },
-  reducers: {}
+  reducers: {},
 })
 
 export default categoriesSlice.reducer
