@@ -153,7 +153,7 @@ const ParentForm = () => {
       </button>
 
       <ModalContainer isVisible={isModalOpen} closeModal={toggleModal}>
-        <div className="flex flex-col gap-y-8">
+        <div className="flex flex-col gap-y-8 overflow-y-auto">
           <div className="space-y-2">
             <h2 className="font-bold text-red-500 fluid-text-xl"> You have not filled the details correctly! </h2>
             <h4 className="font-bold"> Please read the information below and correct your information. </h4>

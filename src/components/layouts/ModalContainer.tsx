@@ -31,7 +31,7 @@ const ModalContainer: FC<ModalProps> = ({ isVisible, children, closeModal }) => 
               duration: 0.4,
               type: 'spring',
             }}
-            className="relative flex h-[95%] w-11/12 flex-col justify-center bg-white px-4 text-slate-800 duration-500 dark:bg-slate-900 dark:text-white sm:w-96"
+            className="relative flex h-[95%] w-11/12 flex-col justify-center overflow-y-auto bg-white px-4 py-8 text-slate-800 duration-500 dark:bg-slate-900 dark:text-white sm:w-96"
           >
             <RxCross2 className="absolute right-0 top-0 mr-4 mt-4 hover:cursor-pointer" onClick={closeModal} />
             {children}
