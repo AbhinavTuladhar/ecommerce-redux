@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import type { ProductsType } from '@/features/products/productsSlice'
 import AddToCartButton from './AddToCartButton'
+import FadeInContainer from '../layouts/FadeInContainer'
 
 interface CardProps {
   product: ProductsType
@@ -12,7 +13,7 @@ const ProductCard: FC<CardProps> = ({ product }) => {
   const { id, title, price, image, description } = product
 
   return (
-    <article className="proper-border rounded-lg  border shadow-xl shadow-slate-300 dark:shadow-slate-950">
+    <FadeInContainer className="proper-border h-full rounded-lg  border shadow-xl shadow-slate-300 dark:shadow-slate-950">
       <div className="mx-auto flex h-full w-11/12 flex-col justify-between gap-y-4 py-8">
         <div className="flex flex-1 items-center">
           <img src={image} alt={title} className="mx-auto max-h-40 max-w-52" />
@@ -34,7 +35,7 @@ const ProductCard: FC<CardProps> = ({ product }) => {
           </div>
         </div>
       </div>
-    </article>
+    </FadeInContainer>
   )
 }
 

@@ -1,6 +1,7 @@
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 
 import FadeInContainer from '@/components/layouts/FadeInContainer'
+import FadeInOnViewContainer from '@/components/layouts/FadeInOnViewContainer'
 import ProductCard from '@/components/misc/ProductCard'
 import type { ProductsState } from '@/features/products/productsSlice'
 
@@ -15,8 +16,14 @@ const ProductGrid: FC<GridProps> = ({ productsState }) => {
     <FadeInContainer>
       {loading && <div> Loading... </div>}
       {error && <div> Found an error </div>}
-      <div className="grid grid-cols-products-grid gap-7">
-        {products?.map((product, index) => <ProductCard product={product} key={index} />)}
+      <div className="grid grid-cols-products-grid items-stretch gap-7">
+        {products?.map((product, index) => (
+          <Fragment key={index}>
+            <FadeInOnViewContainer>
+              <ProductCard product={product} />
+            </FadeInOnViewContainer>
+          </Fragment>
+        ))}
       </div>
     </FadeInContainer>
   )
