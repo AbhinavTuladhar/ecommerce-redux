@@ -1,9 +1,9 @@
 import SectionCardTitle from '@/components/misc/SectionCardTitle'
-import { useAppSelector } from '@/hooks/reduxHooks'
 import { CartSelector, CartItem } from '@/features/cart/cartSlice'
 import { ProductsSelector, ProductsType } from '@/features/products/productsSlice'
-import OrderDetailCard from './OrderDetailCard'
 import findTotalAmount from '@/helpers/findTotalAmount'
+import { useAppSelector } from '@/hooks/reduxHooks'
+import OrderDetailCard from './OrderDetailCard'
 
 interface CartProductCombined extends ProductsType, CartItem {}
 

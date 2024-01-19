@@ -1,6 +1,6 @@
+import FadeInContainer from '@/components/layouts/FadeInContainer'
 import PageLayout from '@/components/layouts/PageLayout'
 import NavigateBackButton from '@/components/misc/NavigateBackButton'
-import FadeInContainer from '@/components/layouts/FadeInContainer'
 import { clearCart } from '@/features/cart/cartSlice'
 import { useAppDispatch } from '@/hooks/reduxHooks'
 

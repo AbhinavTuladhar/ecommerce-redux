@@ -4,11 +4,12 @@ import { FaSun } from 'react-icons/fa'
 import { FaMoon } from 'react-icons/fa'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import Logo from '@/assets/logo.png'
-import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
+
+import Accordion from '@/components/layouts/Accordion'
 import { DarkSelector, toggleDarkMode } from '@/features/dark/darkSlice'
 import { CartSelector } from '@/features/cart/cartSlice'
 import findTotalItems from '@/helpers/findTotalItems'
-import Accordion from '@/components/layouts/Accordion'
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 
 const NavBar: FC = () => {
   const darkModeEnabled = useAppSelector(DarkSelector)

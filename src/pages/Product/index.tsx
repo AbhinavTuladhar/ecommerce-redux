@@ -1,5 +1,5 @@
-import ProductDetail from './ProductDetail'
 import FadeInContainer from '@/components/layouts/FadeInContainer'
+import ProductDetail from './ProductDetail'
 
 const index = () => {
   return (

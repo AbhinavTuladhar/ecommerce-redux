@@ -1,7 +1,8 @@
 import { FC } from 'react'
-import { useAppDispatch } from '@/hooks/reduxHooks'
+
 import { addQuantity, subtractQuantity } from '@/features/cart/cartSlice'
 import type { CartItem } from '@/features/cart/cartSlice'
+import { useAppDispatch } from '@/hooks/reduxHooks'
 
 interface RowProps {
   item: CartItem

@@ -1,7 +1,8 @@
-import HeroImage from '@/assets/ecommerce marketing.jpg'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
+
+import HeroImage from '@/assets/ecommerce marketing.jpg'
 
 const Hero = () => {
   const staggerDuration = 0.4

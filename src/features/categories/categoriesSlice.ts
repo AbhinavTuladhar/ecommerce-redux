@@ -1,5 +1,6 @@
-import { RootState } from "@/store";
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+
+import { RootState } from "@/store";
 import { CategoriesAPI } from "@/services/categoriesAPI";
 
 export interface CategoriesState {

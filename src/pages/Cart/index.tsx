@@ -1,13 +1,14 @@
-import ItemList from './ItemList'
-import OrderSummary from './OrderSummary'
-import { useAppSelector } from '@/hooks/reduxHooks'
+import FadeInContainer from '@/components/layouts/FadeInContainer'
+import MainPageLayout from '@/components/layouts/MainPageLayout'
+import PageLayout from '@/components/layouts/PageLayout'
+import NoItemInfo from '@/components/misc/NoItemInfo'
+import PageTitle from '@/components/misc/PageTitle'
 import { CartSelector } from '@/features/cart/cartSlice'
 import findTotalItems from '@/helpers/findTotalItems'
-import NoItemInfo from '@/components/misc/NoItemInfo'
-import PageLayout from '@/components/layouts/PageLayout'
-import PageTitle from '@/components/misc/PageTitle'
-import MainPageLayout from '@/components/layouts/MainPageLayout'
-import FadeInContainer from '@/components/layouts/FadeInContainer'
+import { useAppSelector } from '@/hooks/reduxHooks'
+
+import ItemList from './ItemList'
+import OrderSummary from './OrderSummary'
 
 const Index = () => {
   const cart = useAppSelector(CartSelector)

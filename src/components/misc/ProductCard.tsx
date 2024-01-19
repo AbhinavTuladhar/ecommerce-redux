@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { NavLink } from 'react-router-dom'
+
 import type { ProductsType } from '@/features/products/productsSlice'
 import AddToCartButton from './AddToCartButton'
 

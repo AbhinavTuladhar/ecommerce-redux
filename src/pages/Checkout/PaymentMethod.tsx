@@ -1,8 +1,9 @@
 import React, { FC, useState } from 'react'
+
 import Visa from '@/assets/visa.svg'
 import Paypal from '@/assets/paypal.svg'
-import Input from '@/components/misc/Input'
 import Accordion from '@/components/layouts/Accordion'
+import Input from '@/components/misc/Input'
 import { MasterFormType } from './formsTypes'
 
 interface PaymentMethodProps {

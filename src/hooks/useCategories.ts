@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { useAppSelector } from '@/hooks/reduxHooks'
+
 import { CategoriesSelector } from '@/features/categories/categoriesSlice'
+import { useAppSelector } from '@/hooks/reduxHooks'
 
 const useCategories = () => {
   const fetchedCategories = useAppSelector(CategoriesSelector)

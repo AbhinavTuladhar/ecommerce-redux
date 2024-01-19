@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
-import useProducts from '@/hooks/useProducts'
-import ProductGrid from '@/components/misc/ProductGrid'
+
+import FadeInContainer from '@/components/layouts/FadeInContainer'
 import PageLayout from '@/components/layouts/PageLayout'
 import PageTitle from '@/components/misc/PageTitle'
-import useCategories from '@/hooks/useCategories'
-import convertToTitleCase from '@/helpers/convertToTitleCase'
+import ProductGrid from '@/components/misc/ProductGrid'
 import type { ProductsType } from '@/features/products/productsSlice'
-import FadeInContainer from '@/components/layouts/FadeInContainer'
+import convertToTitleCase from '@/helpers/convertToTitleCase'
+import useCategories from '@/hooks/useCategories'
+import useProducts from '@/hooks/useProducts'
 
 const Index = () => {
   const productsResponse = useProducts()

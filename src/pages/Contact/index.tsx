@@ -1,7 +1,7 @@
-import ContactForm from './ContactForm'
+import FadeInContainer from '@/components/layouts/FadeInContainer'
 import PageLayout from '@/components/layouts/PageLayout'
 import PageTitle from '@/components/misc/PageTitle'
-import FadeInContainer from '@/components/layouts/FadeInContainer'
+import ContactForm from './ContactForm'
 
 const Index = () => {
   return (

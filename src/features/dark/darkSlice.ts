@@ -1,5 +1,6 @@
-import { RootState } from '@/store'
 import { createSlice } from '@reduxjs/toolkit'
+
+import { RootState } from '@/store'
 import getInitialMode, { storageKey } from '@/helpers/getInitialMode'
 
 const initialSystemState = getInitialMode()

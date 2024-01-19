@@ -1,5 +1,5 @@
-import useProducts from '@/hooks/useProducts'
 import ProductGrid from '@/components/misc/ProductGrid'
+import useProducts from '@/hooks/useProducts'
 
 const AllProducts = () => {
   const productState = useProducts()

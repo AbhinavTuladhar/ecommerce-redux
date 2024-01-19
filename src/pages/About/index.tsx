@@ -1,14 +1,13 @@
 import { Fragment } from 'react'
+
+import FadeInContainer from '@/components/layouts/FadeInContainer'
 import PageLayout from '@/components/layouts/PageLayout'
 import PageTitle from '@/components/misc/PageTitle'
 import useCategories from '@/hooks/useCategories'
 import ImageContainer from './ImageContainer'
-import FadeInContainer from '@/components/layouts/FadeInContainer'
 
 const Index = () => {
   const { categories, error, loading } = useCategories()
-
-  console.log(categories)
 
   const imageList = [
     'https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg',

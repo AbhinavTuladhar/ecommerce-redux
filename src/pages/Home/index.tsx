@@ -1,7 +1,7 @@
-import Hero from './Hero'
-import FeaturedProducts from './FeaturedProducts'
-import AllProducts from './AllProducts'
 import FadeInContainer from '@/components/layouts/FadeInContainer'
+import AllProducts from './AllProducts'
+import FeaturedProducts from './FeaturedProducts'
+import Hero from './Hero'
 
 const index = () => {
   return (

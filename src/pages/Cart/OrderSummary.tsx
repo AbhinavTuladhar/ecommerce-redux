@@ -1,9 +1,10 @@
-import SectionCardTitle from '@/components/misc/SectionCardTitle'
-import findTotalItems from '@/helpers/findTotalItems'
-import findTotalAmount from '@/helpers/findTotalAmount'
-import { useAppSelector } from '@/hooks/reduxHooks'
-import { CartSelector } from '@/features/cart/cartSlice'
 import { NavLink } from 'react-router-dom'
+
+import SectionCardTitle from '@/components/misc/SectionCardTitle'
+import { CartSelector } from '@/features/cart/cartSlice'
+import findTotalAmount from '@/helpers/findTotalAmount'
+import findTotalItems from '@/helpers/findTotalItems'
+import { useAppSelector } from '@/hooks/reduxHooks'
 
 const OrderSummary = () => {
   const cart = useAppSelector(CartSelector)

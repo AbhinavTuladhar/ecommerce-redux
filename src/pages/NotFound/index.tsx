@@ -1,5 +1,5 @@
-import PageLayout from '@/components/layouts/PageLayout'
 import FadeInContainer from '@/components/layouts/FadeInContainer'
+import PageLayout from '@/components/layouts/PageLayout'
 
 const Index = () => {
   return (

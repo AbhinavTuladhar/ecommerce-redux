@@ -1,6 +1,6 @@
 import SectionCardTitle from '@/components/misc/SectionCardTitle'
-import { useAppSelector } from '@/hooks/reduxHooks'
 import { CartSelector } from '@/features/cart/cartSlice'
+import { useAppSelector } from '@/hooks/reduxHooks'
 import CartItemRow from './CardItemRow'
 
 const ItemList = () => {

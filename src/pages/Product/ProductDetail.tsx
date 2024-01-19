@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom'
+
+import AddToCartButton from '@/components/misc/AddToCartButton'
 import StarRating from '@/components/misc/StarRating'
 import useProducts from '@/hooks/useProducts'
-import AddToCartButton from '@/components/misc/AddToCartButton'
 
 const ProductDetail = () => {
   const { id } = useParams()

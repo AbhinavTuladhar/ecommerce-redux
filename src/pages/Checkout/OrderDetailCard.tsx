@@ -1,8 +1,9 @@
 import { FC } from 'react'
 import { MdClose } from 'react-icons/md'
+
+import StarRating from '@/components/misc/StarRating'
 import { CartItem, removeItem } from '@/features/cart/cartSlice'
 import type { ProductsType } from '@/features/products/productsSlice'
-import StarRating from '@/components/misc/StarRating'
 import { useAppDispatch } from '@/hooks/reduxHooks'
 
 interface CombinedProduct extends ProductsType, CartItem {}

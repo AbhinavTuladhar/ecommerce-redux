@@ -1,17 +1,18 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+import ModalContainer from '@/components/layouts/ModalContainer'
+import { CartSelector } from '@/features/cart/cartSlice'
+import formReducer from '@/helpers/formReducer'
+import validateForm from '@/helpers/validateForm'
+import { useAppSelector } from '@/hooks/reduxHooks'
+import type { MasterFormType, Action, BillingMethod as BillingMethodType } from './formsTypes'
+import { ActionType } from './enums'
 import BillingInfo from './BillingInfo'
 import BillingMethod from './BillingMethod'
 import PaymentMethod from './PaymentMethod'
 import Additional from './Additional'
 import Confirmation from './Confirmation'
-import type { MasterFormType, Action, BillingMethod as BillingMethodType } from './formsTypes'
-import { ActionType } from './enums'
-import { useAppSelector } from '@/hooks/reduxHooks'
-import { CartSelector } from '@/features/cart/cartSlice'
-import formReducer from '@/helpers/formReducer'
-import validateForm from '@/helpers/validateForm'
-import ModalContainer from '@/components/layouts/ModalContainer'
 
 const ParentForm = () => {
   const initialState: MasterFormType = {

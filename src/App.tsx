@@ -1,12 +1,13 @@
 import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
-import { fetchProducts, ProductsSelector } from '@/features/products/productsSlice'
-import { fetchCategories, CategoriesSelector } from './features/categories/categoriesSlice'
-import { DarkSelector } from '@/features/dark/darkSlice'
+
 import NavBar from '@/components/misc/NavBar'
-import Footer from './components/misc/Footer'
-import Router from './Router'
+import Footer from '@/components/misc/Footer'
 import ScrollToTop from '@/components/misc/ScrollToTop'
+import { fetchCategories, CategoriesSelector } from '@/features/categories/categoriesSlice'
+import { DarkSelector } from '@/features/dark/darkSlice'
+import { fetchProducts, ProductsSelector } from '@/features/products/productsSlice'
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
+import Router from './Router'
 
 const App = () => {
   const products = useAppSelector(ProductsSelector)

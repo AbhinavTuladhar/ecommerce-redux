@@ -1,8 +1,9 @@
-import Clothes from '@/assets/clothes.jpg'
-import Electronics from '@/assets/electronics.jpg'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { motion, Variants } from 'framer-motion'
+
+import Clothes from '@/assets/clothes.jpg'
+import Electronics from '@/assets/electronics.jpg'
 
 const fadeInVariant: Variants = {
   hidden: {

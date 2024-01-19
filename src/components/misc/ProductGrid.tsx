@@ -1,7 +1,8 @@
 import { FC } from 'react'
+
+import FadeInContainer from '@/components/layouts/FadeInContainer'
 import ProductCard from '@/components/misc/ProductCard'
 import type { ProductsState } from '@/features/products/productsSlice'
-import FadeInContainer from '../layouts/FadeInContainer'
 
 interface GridProps {
   productsState: ProductsState
