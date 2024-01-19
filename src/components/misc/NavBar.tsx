@@ -14,7 +14,7 @@ const NavBar: FC = () => {
   const darkModeEnabled = useAppSelector(DarkSelector)
   const cart = useAppSelector(CartSelector)
   const dispatch = useAppDispatch()
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const { pathname } = useLocation()
 
   // Roll up navbar on small screens whenever location changes
