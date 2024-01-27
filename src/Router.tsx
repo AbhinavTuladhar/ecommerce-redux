@@ -1,14 +1,16 @@
+import { lazy } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import Home from '@/pages/Home'
-import Product from '@/pages/Product'
-import Cart from '@/pages/Cart'
-import Checkout from '@/pages/Checkout'
-import ThankYou from '@/pages/ThankYou'
-import ProductsList from '@/pages/ProductsList'
-import NotFound from '@/pages/NotFound'
-import About from '@/pages/About'
-import Contact from '@/pages/Contact'
 import { AnimatePresence } from 'framer-motion'
+
+const Home = lazy(() => import('@/pages/Home'))
+const Product = lazy(() => import('@/pages/Product'))
+const Cart = lazy(() => import('@/pages/Cart'))
+const Checkout = lazy(() => import('@/pages/Checkout'))
+const ThankYou = lazy(() => import('@/pages/ThankYou'))
+const ProductsList = lazy(() => import('@/pages/ProductsList'))
+const NotFound = lazy(() => import('@/pages/NotFound'))
+const About = lazy(() => import('@/pages/About'))
+const Contact = lazy(() => import('@/pages/Contact'))
 
 const Router = () => {
   const location = useLocation()
